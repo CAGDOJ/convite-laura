@@ -1,0 +1,63 @@
+/* Clear, roomy lettering over both illustrated backgrounds. */
+#laura-story-invite .l-paper .l-topline{padding:28px 12px 16px;gap:7px;font-size:12px;line-height:1.5;letter-spacing:.8px;flex-wrap:wrap;color:#374E36}
+#laura-story-invite .l-paper .l-cover-title{position:relative;margin:0 -3px;padding:3px 12px 5px;border-radius:24px;background:radial-gradient(ellipse,#FFFBEFF2 20%,#FFFBEFD6 60%,#FFFBEF00 100%)}
+#laura-story-invite .l-paper .l-cover-title .l-once{font-size:clamp(26px,6.5vw,29px);line-height:1.3;color:#365D70;margin:8px 0 10px}
+#laura-story-invite .l-paper .l-cover-title .l-kicker{max-width:250px;margin:0 auto 8px;font-size:13px;font-weight:500;line-height:1.55;letter-spacing:.8px;text-wrap:balance;color:#3B5437}
+#laura-story-invite .l-paper .l-cover-title h1.l-name{font-size:clamp(72px,20vw,88px);line-height:1.28;color:#A02428;overflow:visible;padding:0 2px}
+#laura-story-invite .l-paper .l-cover-title .l-age{font-size:31px;line-height:1.35;margin:0;color:#A02428}
+#laura-story-invite[data-story-scene="cover"] .l-paper .l-copy{font-size:16px;line-height:1.65;color:#3F5638;background:#FFFBEFF5;margin:10px auto 18px;padding:11px 12px;max-width:292px}
+#laura-story-invite .l-paper .l-invite-frame .l-kicker{font-size:12px;line-height:1.5;letter-spacing:1px;color:#405238}
+#laura-story-invite .l-paper .l-invite-frame h1.l-name{line-height:1.28;padding:0 1px}
+#laura-story-invite .l-paper .l-invite-frame .l-copy{font-size:16px;line-height:1.6;color:#405238}
+#laura-story-invite .l-paper .l-detail{font-size:15px;line-height:1.5;color:#476474}
+#laura-story-invite .l-paper .l-detail strong{font-size:14px;line-height:1.4;color:#344532}
+#laura-story-invite .l-paper>.l-birds{z-index:40;pointer-events:none}
+#laura-story-invite[data-story-scene="cover"] .l-bird-left{top:90px;left:-6px;width:65px;height:58px}
+#laura-story-invite[data-story-scene="cover"] .l-bird-right{top:105px;right:-6px;width:61px;height:54px}
+#laura-story-invite[data-story-scene="opening"] .l-bird-left{top:90px;left:-6px}
+#laura-story-invite[data-story-scene="opening"] .l-bird-right{top:105px;right:-6px}
+#laura-story-invite .l-paper>.l-birds .l-bird-left{width:65px;height:58px}
+#laura-story-invite .l-paper>.l-birds .l-bird-right{width:61px;height:54px}
+
+/* Reserve separate space for the introduction, letter and continue control. */
+#laura-story-invite .l-paper .l-envelope-stage{padding:32px 16px 22px}
+#laura-story-invite .l-paper .l-envelope-intro{flex-shrink:0;max-width:100%;min-height:82px;padding:10px 12px;border-radius:16px;font-size:clamp(25px,6.4vw,27px);line-height:1.24;letter-spacing:0;background:#FFFCF0D9;color:#304F65;text-shadow:none;text-wrap:balance}
+#laura-story-invite .l-paper .l-envelope-shell{margin:184px auto 14px}
+#laura-story-invite .l-paper .l-envelope-letter{height:228px;padding:12px 10px 8px}
+#laura-story-invite .l-paper .l-letter-kicker{font-size:11px;font-weight:500;line-height:1.5;letter-spacing:1px;text-transform:uppercase;color:#44583E;margin:0 0 4px}
+#laura-story-invite .l-paper .l-letter-name{font-size:62px;line-height:1.25;margin:0;overflow:visible;color:#A02428}
+#laura-story-invite .l-paper .l-letter-age{font-size:27px;line-height:1.2;color:#A02428}
+#laura-story-invite .l-paper .l-envelope-letter .l-art{aspect-ratio:2.7;margin-top:4px}
+#laura-story-invite .l-paper .l-envelope-signature{font-size:22px;line-height:1.2;color:#36586B}
+#laura-story-invite .l-paper .l-envelope-continue{font-size:15px;line-height:1.4;min-height:48px;background:#FFFCF5;border-color:#A02428;color:#A02428;box-shadow:0 4px 12px #456B8112}
+
+/* A real apple replaces the wax seal, with two bites on its right edge. */
+#laura-story-invite .l-paper .l-envelope-seal{width:54px;height:62px;top:98px;border:0;background:none;box-shadow:none;filter:drop-shadow(0 4px 3px #7C302A25)}
+#laura-story-invite .l-paper .l-envelope-seal .l-seal-apple{display:block;width:54px;height:62px}
+#laura-story-invite .l-apple-bite{opacity:0}
+#laura-story-invite .l-paper .l-envelope-stage.has-first-bite .l-apple-bite-one{opacity:1}
+#laura-story-invite .l-paper .l-envelope-stage.has-second-bite .l-apple-bite-two{opacity:1}
+#laura-story-invite .l-paper .l-envelope-stage.is-opening .l-envelope-seal{animation:l-apple-eaten .9s calc(var(--l-sky-nibble-at) + 1400ms) ease both}
+@keyframes l-apple-eaten{0%{opacity:1;transform:translate(-50%,-50%) scale(1)}35%{opacity:1;transform:translate(-39%,-45%) rotate(9deg) scale(.82)}100%{opacity:0;transform:translate(-16%,-41%) rotate(14deg) scale(.08)}}
+
+/* The fawn's muzzle meets the apple before it opens the letter. */
+#laura-story-invite .l-fawn-visitor{position:absolute;z-index:12;left:calc(50% + 7px);top:34px;width:170px;height:130px;pointer-events:none;opacity:0;transform-origin:20% 100%}
+#laura-story-invite .l-fawn-visitor img{position:relative;display:block;width:100%;height:100%;object-fit:contain;transform-origin:15% 33%;filter:drop-shadow(0 3px 2px #8D76511A)}
+#laura-story-invite .l-fawn-cloud{position:absolute;left:7%;right:-4%;bottom:-6px;height:24px;border-radius:50%;background:radial-gradient(ellipse,#FFFCF3F2 10%,#FFFCF3BB 50%,#FFFCF300 74%);filter:blur(3px)}
+#laura-story-invite .is-opening .l-fawn-visitor{animation:l-fawn-arrive 2.4s var(--l-sky-fawn-at) cubic-bezier(.25,.5,.3,1) both,l-fawn-leave 2.1s var(--l-sky-leave-at) ease-in forwards}
+#laura-story-invite .is-opening .l-fawn-visitor img{animation:l-fawn-step .4s var(--l-sky-fawn-at) ease-in-out 6,l-fawn-nibble .44s var(--l-sky-nibble-at) ease-in-out 4}
+@keyframes l-fawn-arrive{0%{opacity:0;transform:translate3d(210px,18px,0)}12%{opacity:1}100%{opacity:1;transform:translate3d(0,0,0)}}
+@keyframes l-fawn-step{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-5px) rotate(-2deg)}}
+@keyframes l-fawn-nibble{0%,100%{transform:translate3d(0,0,0) rotate(0)}45%{transform:translate3d(-5px,2px,0) rotate(-2.5deg)}75%{transform:translate3d(-2px,0,0) rotate(1deg)}}
+@keyframes l-fawn-leave{0%{opacity:1;transform:translate3d(0,0,0)}25%{opacity:1;transform:translate3d(16px,2px,0)}100%{opacity:0;transform:translate3d(220px,20px,0)}}
+@media(max-width:350px){
+  #laura-story-invite .l-paper .l-topline{padding-left:8px;padding-right:8px;letter-spacing:.6px;font-size:10px}
+  #laura-story-invite .l-paper .l-cover-title{padding-left:8px;padding-right:8px}
+  #laura-story-invite .l-paper .l-cover-title .l-kicker{font-size:11px;max-width:220px}
+  #laura-story-invite .l-paper .l-cover-title h1.l-name{font-size:72px}
+  #laura-story-invite .l-paper .l-envelope-intro{font-size:24px;padding-left:7px;padding-right:7px}
+  #laura-story-invite .l-paper .l-envelope-shell{margin-top:184px}
+  #laura-story-invite .l-paper .l-letter-name{font-size:57px}
+  #laura-story-invite .l-paper .l-letter-kicker{font-size:10px;letter-spacing:.7px}
+}
+@media(prefers-reduced-motion:reduce){#laura-story-invite .l-fawn-visitor,#laura-story-invite .l-fawn-visitor img,#laura-story-invite .l-apple-bite{animation:none}}
