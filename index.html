@@ -188,14 +188,31 @@ html{background:#F5F0E7;color-scheme:light}body{margin:0;padding:22px max(12px,e
         filter=button.dataset.filter;root.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));renderGuests();
       }));
       const form=root.querySelector('#l-rsvp-form');
-      form.addEventListener('submit',event=>{
+      form.addEventListener('submit',async event=>{
         event.preventDefault();if(!form.reportValidity())return;
         const values=new FormData(form);const name=String(values.get('full_name')||'').trim().replace(/\s+/g,' ');
         const error=root.querySelector('#l-form-error');
         if(name.length<4||!name.includes(' ')){error.textContent='Preencha seu nome e sobrenome, por favor.';error.hidden=false;root.querySelector('#l-full-name').focus();return;}
-        error.hidden=true;guests.push({name,relationship:String(values.get('relationship')),family:String(values.get('family'))});
-        root.querySelector('#l-guest-firstname').textContent=name.split(' ')[0]+',';
-        form.reset();renderGuests();showScene('thanks');status.textContent='Confirmação simulada · aparece apenas nesta prévia';
+        const submit=form.querySelector('button[type="submit"]');
+        if(submit.disabled)return;
+        error.hidden=true;submit.disabled=true;form.setAttribute('aria-busy','true');
+        const timeout=new AbortController();const timeoutId=setTimeout(()=>timeout.abort(),15000);
+        try{
+          const response=await fetch('https://grqumxtzqpxuuoyjvprd.supabase.co/rest/v1/laura_rsvps',{
+            method:'POST',
+            headers:{'apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdycXVteHR6cXB4dXVveWp2cHJkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI0MjAxNDAsImV4cCI6MjEwNzk5NjE0MH0.UfLEgBUD5f1IkBgKc32NXWLrng8FKIAR6cjaEqldmE8','Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdycXVteHR6cXB4dXVveWp2cHJkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI0MjAxNDAsImV4cCI6MjEwNzk5NjE0MH0.UfLEgBUD5f1IkBgKc32NXWLrng8FKIAR6cjaEqldmE8','Content-Type':'application/json','Prefer':'return=minimal'},
+            body:JSON.stringify({nome:name,parentesco:String(values.get('relationship')),familia:String(values.get('family'))}),
+            signal:timeout.signal
+          });
+          if(!response.ok)throw new Error('A confirmação não foi salva.');
+          root.querySelector('#l-guest-firstname').textContent=name.split(' ')[0]+',';
+          form.reset();showScene('thanks');status.textContent='Confirmação enviada.';
+        }catch(_){
+          error.textContent='Não foi possível enviar sua confirmação. Confira sua internet e tente novamente.';
+          error.hidden=false;
+        }finally{
+          clearTimeout(timeoutId);submit.disabled=false;form.removeAttribute('aria-busy');
+        }
       });
       renderGuests();
     })();
