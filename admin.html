@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#f8f4ea"><title>Lista da Laura</title>
+<style>
+:root{color-scheme:light;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#414c3f;background:#f5f3e9}*{box-sizing:border-box}body{margin:0;padding:32px 16px;background:radial-gradient(circle at top,#fffaf0,#eef1e5);min-height:100vh}main{width:min(100%,680px);margin:auto;background:#fffdf7;border:1px solid #dfdfd2;border-radius:24px;padding:clamp(20px,5vw,36px);box-shadow:0 20px 45px #33442816}h1{font-family:Georgia,serif;font-weight:500;color:#a72e29;font-size:clamp(30px,7vw,42px);margin:0 0 8px}p{line-height:1.55;color:#687361}label{display:block;margin:18px 0 7px;font-size:14px;font-weight:600}input{width:100%;font:inherit;font-size:16px;padding:14px;border:1px solid #cbd2c3;border-radius:12px;background:white}button{font:inherit;cursor:pointer;border:0;border-radius:12px;padding:13px 17px;min-height:46px}.primary{background:#a82d28;color:white;font-weight:600;width:100%;margin-top:20px}.top{display:flex;justify-content:space-between;align-items:start;gap:16px}.minor{background:#e9eee4;color:#41583e;font-size:14px}button:disabled{opacity:.6;cursor:wait}.error{color:#a72e29;font-size:14px}.counts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:22px 0}.counts div{border:1px solid #e2e5da;border-radius:13px;padding:13px;background:#f7f8f1}.counts strong{display:block;font-size:25px;color:#617c88}.counts span{font-size:12px;color:#687361}.filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px}.filters button{background:#eef1e9;color:#4f634a}.filters button[aria-pressed=true]{background:#a82d28;color:white}.list{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:430px;text-align:left;font-size:14px}th,td{padding:13px 8px;border-bottom:1px solid #e7eadf}th{color:#6b7d65;font-weight:600;font-size:12px}[hidden]{display:none!important}.foot{font-size:12px;color:#788373;margin-top:20px}
+</style></head><body><main>
+<div class="top"><div><h1>Lista da Laura</h1><p>Confirmações do Jardim Encantado</p></div><button id="logout" class="minor" type="button" hidden>Sair</button></div>
+<form id="login"><label for="user">Usuário</label><input id="user" autocomplete="username" required autocapitalize="none"><label for="password">Senha</label><input id="password" type="password" autocomplete="current-password" required><p id="login-error" class="error" role="alert" hidden></p><button id="login-button" class="primary" type="submit">Entrar</button></form>
+<section id="dashboard" hidden><div class="counts"><div><strong id="total">0</strong><span>Confirmados</span></div><div><strong id="father">0</strong><span>Do papai</span></div><div><strong id="mother">0</strong><span>Da mamãe</span></div></div><div class="filters" aria-label="Filtrar por família"><button type="button" data-filter="all" aria-pressed="true">Todos</button><button type="button" data-filter="pai" aria-pressed="false">Do papai</button><button type="button" data-filter="mae" aria-pressed="false">Da mamãe</button><button id="refresh" type="button">Atualizar</button></div><p id="status" aria-live="polite"></p><div class="list"><table><thead><tr><th>Nome</th><th>Parentesco</th><th>Família</th></tr></thead><tbody id="rows"></tbody></table></div><p class="foot">A lista é atualizada ao entrar ou ao tocar em Atualizar.</p></section>
+</main><script>
+(()=>{
+'use strict';
+const URL_BASE='https://grqumxtzqpxuuoyjvprd.supabase.co';
+const API_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdycXVteHR6cXB4dXVveWp2cHJkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI0MjAxNDAsImV4cCI6MjEwNzk5NjE0MH0.UfLEgBUD5f1IkBgKc32NXWLrng8FKIAR6cjaEqldmE8';
+const ADMIN_EMAIL='cagdoj@convite-laura.invalid';
+const byId=id=>document.getElementById(id);
+let accessToken='', guests=[], filter='all';
+function headers(token){return {'apikey':API_KEY,'Authorization':'Bearer '+(token||API_KEY),'Content-Type':'application/json'};}
+function render(){
+ byId('total').textContent=guests.length;
+ byId('father').textContent=guests.filter(g=>g.familia==='pai').length;
+ byId('mother').textContent=guests.filter(g=>g.familia==='mae').length;
+ const rows=byId('rows');rows.replaceChildren();
+ const visible=guests.filter(g=>filter==='all'||g.familia===filter);
+ for(const g of visible){const tr=document.createElement('tr');for(const value of [g.nome,g.parentesco,g.familia==='pai'?'Papai':'Mamãe']){const td=document.createElement('td');td.textContent=value;tr.appendChild(td);}rows.appendChild(tr);}
+ byId('status').textContent=visible.length?'':'Nenhuma confirmação nesta lista.';
+}
+async function load(){
+ byId('status').textContent='Atualizando confirmações…';
+ try{
+  const response=await fetch(URL_BASE+'/rest/v1/laura_rsvps?select=nome,parentesco,familia,created_at&order=created_at.desc',{headers:headers(accessToken)});
+  if(!response.ok)throw new Error('consulta');
+  guests=await response.json();if(!Array.isArray(guests))throw new Error('formato');render();
+ }catch(_){byId('status').textContent='Não foi possível carregar. Confira sua internet e toque em Atualizar.';}
+}
+byId('login').addEventListener('submit',async e=>{
+ e.preventDefault();
+ const err=byId('login-error'),button=byId('login-button');err.hidden=true;
+ if(byId('user').value.trim().toUpperCase()!=='CAGDOJ'){err.textContent='Usuário ou senha incorretos.';err.hidden=false;return;}
+ button.disabled=true;
+ try{
+  const auth=await fetch(URL_BASE+'/auth/v1/token?grant_type=password',{method:'POST',headers:headers(),body:JSON.stringify({email:ADMIN_EMAIL,password:byId('password').value})});
+  if(!auth.ok)throw new Error('login');
+  const session=await auth.json();if(!session.access_token)throw new Error('login');
+  const check=await fetch(URL_BASE+'/rest/v1/rpc/laura_is_admin',{method:'POST',headers:headers(session.access_token),body:'{}'});
+  if(!check.ok||await check.json()!==true)throw new Error('access');
+  accessToken=session.access_token;byId('password').value='';byId('login').hidden=true;byId('dashboard').hidden=false;byId('logout').hidden=false;await load();
+ }catch(error){accessToken='';err.textContent=error.message==='access'?'Seu acesso à lista ainda não foi liberado.':'Não foi possível entrar. Confira o usuário, a senha e sua internet.';err.hidden=false;}
+ finally{button.disabled=false;}
+});
+byId('logout').addEventListener('click',()=>{accessToken='';guests=[];byId('password').value='';byId('login').hidden=false;byId('dashboard').hidden=true;byId('logout').hidden=true;byId('rows').replaceChildren();});
+byId('refresh').addEventListener('click',load);
+document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{filter=button.dataset.filter;document.querySelectorAll('[data-filter]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));render();}));
+})();
+</script></body></html>
