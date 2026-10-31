@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#FAF5EB"><meta name="referrer" content="strict-origin-when-cross-origin"><meta name="description" content="Modelo privado do convite de 1 ano da Laura, com Branca de Neve infantil e Jardim Encantado."><title>Jardim Encantado</title>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#FAF5EB"><meta name="referrer" content="strict-origin-when-cross-origin"><meta name="description" content="Convite para o primeiro aniversário da Laura no Jardim Encantado."><title>Jardim Encantado</title>
 <style>
 html{background:#F5F0E7;color-scheme:light}body{margin:0;padding:22px max(12px,env(safe-area-inset-right)) 30px max(12px,env(safe-area-inset-left));background:radial-gradient(ellipse at top,#FFFDF7,#F1EEE5);font-family:Arial,sans-serif;min-width:280px}button,a{-webkit-tap-highlight-color:transparent;cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #7B9FB4;outline-offset:4px}
 .music-panel{max-width:400px;margin:0 auto 20px;background:#FFFDF7;border:1px solid #D9DFD3;border-radius:18px;padding:15px;color:#56674F;box-shadow:0 8px 25px #2638280A}.music-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:14px;margin:0 0 12px}.music-start{color:#AE2A28;background:#F4EAE0;padding:5px 9px;border-radius:99px;font-size:12px}.music-panel iframe{display:block;border:0;border-radius:10px;width:100%;height:200px;min-height:200px}.music-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:12px}.music-actions button{border:1px solid #AE2A28;border-radius:10px;background:#AE2A28;color:#FFF9F0;padding:11px 13px;font-size:13px;min-height:44px}.music-actions a{color:#647D89;font-size:12px;text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center}.music-panel p{font-size:12px;line-height:1.55;margin:10px 0 0;color:#6C7A65}
-@media(min-width:920px){body{padding-top:30px}#laura-story-invite{max-width:960px!important;display:grid;grid-template-columns:430px 350px;justify-content:center;gap:0 38px}#laura-story-invite>.l-demo-nav,#laura-story-invite>.l-demo-note{grid-column:1/-1}#laura-story-invite>.l-preview-area{grid-column:1}#laura-story-invite>.music-panel{grid-column:2;grid-row:3;align-self:start;position:sticky;top:24px;margin-top:20px;width:350px}#laura-story-invite .l-owner{width:100%}}
+@media(min-width:920px){body{padding-top:30px}#laura-story-invite{max-width:480px!important;margin-inline:auto}}
 </style><link rel="stylesheet" href="motion.css?v=4"><link rel="stylesheet" href="forest.css?v=1"><link rel="stylesheet" href="sky.css?v=2"><link rel="stylesheet" href="storybook.css?v=3"><link rel="stylesheet" href="typewriter.css?v=5"><link rel="preload" as="image" href="assets/forest-scene.webp"><link rel="preconnect" href="https://www.youtube.com"><link rel="preconnect" href="https://www.youtube-nocookie.com"><link rel="preconnect" href="https://i.ytimg.com"></head><body>
 <div id="laura-story-invite">
   <style>
@@ -74,14 +74,10 @@ html{background:#F5F0E7;color-scheme:light}body{margin:0;padding:22px max(12px,e
     @media(prefers-reduced-motion:reduce){#laura-story-invite *{transition:none!important}}
   </style>
 
-  <div class="l-demo-nav" role="tablist" aria-label="Explorar o modelo">
-    <button id="l-guest-tab" class="cursor-interaction" type="button" role="tab" aria-selected="true" aria-controls="l-guest-preview" data-mode="guest">Convite</button>
-    <button id="l-owner-tab" class="cursor-interaction" type="button" role="tab" aria-selected="false" aria-controls="l-owner-preview" data-mode="owner">Painel privado · prévia</button>
-  </div>
-  <p class="l-demo-note" id="l-preview-status" aria-live="polite">Modelo para experimentar · confirmações de exemplo</p>
+  <p id="l-preview-status" aria-live="polite" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0"></p>
 
   <div class="l-preview-area viz-dotted-background">
-    <div id="l-guest-preview" role="tabpanel" aria-labelledby="l-guest-tab">
+    <div id="l-guest-preview">
       <div class="l-phone"><div class="l-paper">
         <div class="l-topline">Jardim Encantado</div>
         <section class="l-scene" data-scene="cover">
@@ -135,24 +131,12 @@ html{background:#F5F0E7;color-scheme:light}body{margin:0;padding:22px max(12px,e
       </div></div>
     </div>
 
-    <div id="l-owner-preview" role="tabpanel" aria-labelledby="l-owner-tab" hidden>
-      <div class="l-owner">
-        <div class="l-owner-top"><h2>Lista da Laura</h2><span class="l-owner-lock"><i data-lucide="lock-keyhole" aria-hidden="true"></i> Seu painel privado</span></div>
-        <p class="l-owner-sub">Simulação do painel · nomes fictícios</p>
-        <div class="l-counts"><div><strong id="l-total">2</strong><span>Confirmados</span></div><div><strong id="l-paternal">1</strong><span>Do papai</span></div><div><strong id="l-maternal">1</strong><span>Da mamãe</span></div></div>
-        <div class="l-filters" role="group" aria-label="Filtrar confirmações por família"><button type="button" class="cursor-interaction" data-filter="all" aria-pressed="true">Todos</button><button type="button" class="cursor-interaction" data-filter="pai" aria-pressed="false">Do papai</button><button type="button" class="cursor-interaction" data-filter="mae" aria-pressed="false">Da mamãe</button></div>
-        <div class="l-list-wrap"><table><thead><tr><th>Nome completo</th><th>Parentesco</th><th>Família</th></tr></thead><tbody id="l-guest-list"></tbody></table></div>
-        <p class="l-owner-bottom"><i data-lucide="shield-check" aria-hidden="true"></i><span>Na versão final, esta lista terá login exclusivo para você.</span></p>
-      </div>
-    </div>
   </div>
   <script>
     (()=>{
       const root=document.getElementById('laura-story-invite');
       const scenes=Array.from(root.querySelectorAll('[data-scene]'));
       const status=root.querySelector('#l-preview-status');
-      const guests=[{name:'Convidada de exemplo',relationship:'Tia',family:'mae'},{name:'Convidado de exemplo',relationship:'Tio',family:'pai'}];
-      let filter='all';
       const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       function showScene(name){
         root.dataset.storyScene=name;
@@ -162,30 +146,10 @@ html{background:#F5F0E7;color-scheme:light}body{margin:0;padding:22px max(12px,e
         const next=scenes.find(scene=>scene.dataset.scene===name);
         if(next&&!reduced&&typeof next.animate==='function')next.animate([{opacity:0},{opacity:1}],{duration:430,easing:'cubic-bezier(.2,.8,.2,1)'});
       }
-      function renderGuests(){
-        root.querySelector('#l-total').textContent=guests.length;
-        root.querySelector('#l-paternal').textContent=guests.filter(g=>g.family==='pai').length;
-        root.querySelector('#l-maternal').textContent=guests.filter(g=>g.family==='mae').length;
-        const body=root.querySelector('#l-guest-list');body.replaceChildren();
-        guests.filter(g=>filter==='all'||g.family===filter).forEach(guest=>{
-          const tr=document.createElement('tr');
-          for(const value of [guest.name,guest.relationship]){const td=document.createElement('td');td.textContent=value;tr.appendChild(td);}
-          const td=document.createElement('td');const badge=document.createElement('span');badge.className='l-family-pill';badge.textContent=guest.family==='pai'?'Papai':'Mamãe';td.appendChild(badge);tr.appendChild(td);body.appendChild(tr);
-        });
-      }
       root.querySelectorAll('[data-go]').forEach(button=>button.addEventListener('click',()=>{
         const opening=button.dataset.go==='invite'&&button.closest('[data-scene="cover"]');
         if(opening&&typeof root.openInvitation==='function')root.openInvitation(()=>showScene('invite'));
         else showScene(button.dataset.go);
-      }));
-      root.querySelectorAll('[data-mode]').forEach(button=>button.addEventListener('click',()=>{
-        const owner=button.dataset.mode==='owner';
-        root.querySelector('#l-owner-preview').hidden=!owner;root.querySelector('#l-guest-preview').hidden=owner;
-        root.querySelectorAll('[data-mode]').forEach(tab=>tab.setAttribute('aria-selected',String(tab===button)));
-        status.textContent=owner?'Prévia do painel · dados fictícios · acesso real por login':'Modelo para experimentar · confirmações de exemplo';
-      }));
-      root.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{
-        filter=button.dataset.filter;root.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));renderGuests();
       }));
       const form=root.querySelector('#l-rsvp-form');
       form.addEventListener('submit',async event=>{
@@ -214,7 +178,6 @@ html{background:#F5F0E7;color-scheme:light}body{margin:0;padding:22px max(12px,e
           clearTimeout(timeoutId);submit.disabled=false;form.removeAttribute('aria-busy');
         }
       });
-      renderGuests();
     })();
   </script>
 
