@@ -17,3 +17,29 @@
 /* Keep the invitation as the only visible surface for guests. */
 body #laura-story-invite{display:block!important;max-width:720px!important}
 #laura-story-invite>.music-panel{position:fixed!important;left:-10000px!important;top:0!important;width:320px!important;height:320px!important;margin:0!important;opacity:0;pointer-events:none;overflow:hidden}
+
+/* Use the phone's available viewport; longer event and RSVP content can scroll normally. */
+@media(max-width:600px){
+  html,body{width:100%;min-height:100%;margin:0;padding:0!important;overflow-x:hidden}
+  body{min-height:100vh;min-height:100dvh}
+  body #laura-story-invite{width:100%;max-width:none!important;margin:0}
+  #laura-story-invite .l-preview-area{padding:0!important}
+  #laura-story-invite .l-phone{width:100%!important;margin:0;padding:0!important;border-radius:0!important;box-shadow:none!important}
+  #laura-story-invite .l-phone>.l-paper{min-height:100vh;min-height:100dvh;border:0;border-radius:0}
+  #laura-story-invite .l-paper .l-topline{padding-top:max(12px,env(safe-area-inset-top));padding-bottom:8px}
+  #laura-story-invite[data-story-scene="cover"] .l-phone>.l-paper{display:flex;flex-direction:column}
+  #laura-story-invite[data-story-scene="cover"] .l-paper [data-scene="cover"]{display:flex;flex:1 0 auto;flex-direction:column;padding-bottom:max(12px,env(safe-area-inset-bottom))}
+  #laura-story-invite[data-story-scene="cover"] .l-paper [data-scene="cover"] .l-art{height:auto;min-height:clamp(80px,15dvh,145px);flex:1 1 auto}
+  #laura-story-invite .l-paper .l-envelope-stage{border-radius:0}
+  #laura-story-invite .l-paper .l-envelope-shell{margin-top:clamp(95px,21dvh,184px)}
+  #laura-story-invite .l-paper .l-cover-title h1.l-name{font-size:clamp(60px,10dvh,88px)}
+}
+@media(max-width:600px) and (max-height:740px){
+  #laura-story-invite .l-paper .l-topline{padding-bottom:3px}
+  #laura-story-invite .l-paper .l-cover-title .l-once{font-size:24px;margin:4px 0}
+  #laura-story-invite .l-paper .l-cover-title .l-kicker{margin-bottom:2px;font-size:11px}
+  #laura-story-invite .l-paper .l-cover-title h1.l-name{font-size:clamp(57px,9dvh,68px)}
+  #laura-story-invite .l-paper .l-cover-title .l-age{font-size:25px}
+  #laura-story-invite[data-story-scene="cover"] .l-paper .l-copy{font-size:14px;line-height:1.4;margin:5px auto 8px;padding:7px 10px}
+  #laura-story-invite .l-paper .l-footline{margin-top:8px}
+}

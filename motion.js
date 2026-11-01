@@ -124,9 +124,6 @@
     revealInvitation = null;
     if (reveal) {
       reveal();
-      const title = root.querySelector('[data-scene="invite"] h1');
-      title?.setAttribute('tabindex', '-1');
-      title?.focus({ preventScroll: true });
     }
   }
   continueButton.addEventListener('click', () => {

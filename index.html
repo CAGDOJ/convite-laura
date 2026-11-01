@@ -4,7 +4,7 @@
 html{background:#F5F0E7;color-scheme:light}body{margin:0;padding:22px max(12px,env(safe-area-inset-right)) 30px max(12px,env(safe-area-inset-left));background:radial-gradient(ellipse at top,#FFFDF7,#F1EEE5);font-family:Arial,sans-serif;min-width:280px}button,a{-webkit-tap-highlight-color:transparent;cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #7B9FB4;outline-offset:4px}
 .music-panel{max-width:400px;margin:0 auto 20px;background:#FFFDF7;border:1px solid #D9DFD3;border-radius:18px;padding:15px;color:#56674F;box-shadow:0 8px 25px #2638280A}.music-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:14px;margin:0 0 12px}.music-start{color:#AE2A28;background:#F4EAE0;padding:5px 9px;border-radius:99px;font-size:12px}.music-panel iframe{display:block;border:0;border-radius:10px;width:100%;height:200px;min-height:200px}.music-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:12px}.music-actions button{border:1px solid #AE2A28;border-radius:10px;background:#AE2A28;color:#FFF9F0;padding:11px 13px;font-size:13px;min-height:44px}.music-actions a{color:#647D89;font-size:12px;text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center}.music-panel p{font-size:12px;line-height:1.55;margin:10px 0 0;color:#6C7A65}
 @media(min-width:920px){body{padding-top:30px}#laura-story-invite{max-width:480px!important;margin-inline:auto}}
-</style><link rel="stylesheet" href="motion.css?v=4"><link rel="stylesheet" href="forest.css?v=1"><link rel="stylesheet" href="sky.css?v=2"><link rel="stylesheet" href="storybook.css?v=3"><link rel="stylesheet" href="typewriter.css?v=5"><link rel="preload" as="image" href="assets/forest-scene.webp"><link rel="preconnect" href="https://www.youtube.com"><link rel="preconnect" href="https://www.youtube-nocookie.com"><link rel="preconnect" href="https://i.ytimg.com"></head><body>
+</style><link rel="stylesheet" href="motion.css?v=4"><link rel="stylesheet" href="forest.css?v=1"><link rel="stylesheet" href="sky.css?v=2"><link rel="stylesheet" href="storybook.css?v=3"><link rel="stylesheet" href="typewriter.css?v=6"><link rel="preload" as="image" href="assets/forest-scene.webp"><link rel="preconnect" href="https://www.youtube.com"><link rel="preconnect" href="https://www.youtube-nocookie.com"><link rel="preconnect" href="https://i.ytimg.com"></head><body>
 <div id="laura-story-invite">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=Great+Vibes&display=swap');
@@ -181,19 +181,19 @@ html{background:#F5F0E7;color-scheme:light}body{margin:0;padding:22px max(12px,e
     })();
   </script>
 
-<section class="music-panel" aria-label="Música do convite" aria-hidden="true" inert>
-  <div class="music-heading"><span>A trilha do nosso conto</span><span class="music-start">0:33</span></div>
-  <iframe id="laura-youtube-player" width="100%" height="200" title="Música do convite da Laura" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  <div class="music-actions"><button type="button" id="laura-music-control" aria-pressed="false">Tocar música</button><a href="https://www.youtube.com/watch?v=O3TP49DfkO0&t=33s" target="_blank" rel="noopener">Ouvir no YouTube</a></div>
+<section id="laura-music-panel" class="music-panel" aria-label="Música do convite" aria-hidden="true" inert>
+  <div class="music-heading"><span>A trilha do nosso conto</span><span class="music-start">0:31</span></div>
+  <iframe id="laura-youtube-player" width="100%" height="200" loading="eager" title="Música do convite da Laura" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <div class="music-actions"><button type="button" id="laura-music-control" aria-pressed="false">Tocar música</button><a href="https://www.youtube.com/watch?v=O3TP49DfkO0&t=31s" target="_blank" rel="noopener">Ouvir no YouTube</a></div>
   <button type="button" id="laura-keys-control" class="l-keys-control" aria-pressed="false">Ativar som das teclas</button>
-  <p id="laura-music-status" role="status">Preparando a música a partir de 0:33...</p>
+  <p id="laura-music-status" role="status">Preparando a música...</p>
 </section>
 </div>
 
 <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
 <script>document.addEventListener('DOMContentLoaded',function(){if(window.lucide)window.lucide.createIcons();});</script>
-<script src="music.js?v=5" defer></script>
+<script src="music.js?v=6" defer></script>
 <script src="typewriter-sound.js?v=4" defer></script>
 <script src="typewriter.js?v=3" defer></script>
-<script src="motion.js?v=10" defer></script>
+<script src="motion.js?v=11" defer></script>
 </body></html>
