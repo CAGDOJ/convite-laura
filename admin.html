@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#f8f4ea"><title>Lista da Laura</title>
 <style>
-:root{color-scheme:light;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#414c3f;background:#f5f3e9}*{box-sizing:border-box}body{margin:0;padding:32px 16px;background:radial-gradient(circle at top,#fffaf0,#eef1e5);min-height:100vh}main{width:min(100%,680px);margin:auto;background:#fffdf7;border:1px solid #dfdfd2;border-radius:24px;padding:clamp(20px,5vw,36px);box-shadow:0 20px 45px #33442816}h1{font-family:Georgia,serif;font-weight:500;color:#a72e29;font-size:clamp(30px,7vw,42px);margin:0 0 8px}p{line-height:1.55;color:#687361}label{display:block;margin:18px 0 7px;font-size:14px;font-weight:600}input{width:100%;font:inherit;font-size:16px;padding:14px;border:1px solid #cbd2c3;border-radius:12px;background:white}button{font:inherit;cursor:pointer;border:0;border-radius:12px;padding:13px 17px;min-height:46px}.primary{background:#a82d28;color:white;font-weight:600;width:100%;margin-top:20px}.top{display:flex;justify-content:space-between;align-items:start;gap:16px}.minor{background:#e9eee4;color:#41583e;font-size:14px}button:disabled{opacity:.6;cursor:wait}.error{color:#a72e29;font-size:14px}.counts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:22px 0}.counts div{border:1px solid #e2e5da;border-radius:13px;padding:13px;background:#f7f8f1}.counts strong{display:block;font-size:25px;color:#617c88}.counts span{font-size:12px;color:#687361}.filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px}.filters button{background:#eef1e9;color:#4f634a}.filters button[aria-pressed=true]{background:#a82d28;color:white}.list{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:430px;text-align:left;font-size:14px}th,td{padding:13px 8px;border-bottom:1px solid #e7eadf}th{color:#6b7d65;font-weight:600;font-size:12px}[hidden]{display:none!important}.foot{font-size:12px;color:#788373;margin-top:20px}
+:root{color-scheme:light;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#414c3f;background:#f5f3e9}*{box-sizing:border-box}body{margin:0;padding:32px 16px;background:radial-gradient(circle at top,#fffaf0,#eef1e5);min-height:100vh}main{width:min(100%,680px);margin:auto;background:#fffdf7;border:1px solid #dfdfd2;border-radius:24px;padding:clamp(20px,5vw,36px);box-shadow:0 20px 45px #33442816}h1{font-family:Georgia,serif;font-weight:500;color:#a72e29;font-size:clamp(30px,7vw,42px);margin:0 0 8px}p{line-height:1.55;color:#687361}label{display:block;margin:18px 0 7px;font-size:14px;font-weight:600}input{width:100%;font:inherit;font-size:16px;padding:14px;border:1px solid #cbd2c3;border-radius:12px;background:white}button{font:inherit;cursor:pointer;border:0;border-radius:12px;padding:13px 17px;min-height:46px}.primary{background:#a82d28;color:white;font-weight:600;width:100%;margin-top:20px}.top{display:flex;justify-content:space-between;align-items:start;gap:16px}.minor{background:#e9eee4;color:#41583e;font-size:14px}button:disabled{opacity:.6;cursor:wait}.error{color:#a72e29;font-size:14px}.counts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:22px 0}.counts div{border:1px solid #e2e5da;border-radius:13px;padding:13px;background:#f7f8f1}.counts strong{display:block;font-size:25px;color:#617c88}.counts span{font-size:12px;color:#687361}.download{width:100%;background:#a82d28;color:#fff;font-weight:600;margin:0 0 20px}.filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px}.filters button{background:#eef1e9;color:#4f634a}.filters button[aria-pressed=true]{background:#a82d28;color:white}.list{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:470px;text-align:left;font-size:14px}th,td{padding:13px 8px;border-bottom:1px solid #e7eadf}th{color:#6b7d65;font-weight:600;font-size:12px}.remove{background:#fbefeb;color:#a72e29;border:1px solid #e9c8c1;font-size:13px;min-height:44px;padding:8px 12px}.remove:hover{background:#f6ded9}[hidden]{display:none!important}.foot{font-size:12px;color:#788373;margin-top:20px}@media(max-width:560px){.list{overflow:visible}table{min-width:0}thead{display:none}tbody{display:grid;gap:10px}tbody tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:5px 12px;padding:14px;border:1px solid #e1e5d9;border-radius:14px;background:#fafbf5}tbody td{border:0;padding:0;overflow-wrap:anywhere}tbody td:first-child{font-weight:600;color:#414c3f}tbody td:nth-child(2),tbody td:nth-child(3){grid-column:1;font-size:12px;color:#687361}tbody td:last-child{grid-column:2;grid-row:1/4;align-self:center}}
 </style></head><body><main>
 <div class="top"><div><h1>Lista da Laura</h1><p>Confirmações do Jardim Encantado</p></div><button id="logout" class="minor" type="button" hidden>Sair</button></div>
 <p id="activation-note" hidden>Para ativar a gestão, entre com seu usuário e sua senha.</p>
 <form id="login"><label for="user">Usuário</label><input id="user" autocomplete="username" required autocapitalize="none"><label for="password">Senha</label><input id="password" type="password" autocomplete="current-password" required><p id="login-error" class="error" role="alert" hidden></p><button id="login-button" class="primary" type="submit">Entrar</button></form>
-<section id="dashboard" hidden><div class="counts"><div><strong id="total">0</strong><span>Confirmados</span></div><div><strong id="father">0</strong><span>Do papai</span></div><div><strong id="mother">0</strong><span>Da mamãe</span></div></div><div class="filters" aria-label="Filtrar por família"><button type="button" data-filter="all" aria-pressed="true">Todos</button><button type="button" data-filter="pai" aria-pressed="false">Do papai</button><button type="button" data-filter="mae" aria-pressed="false">Da mamãe</button><button id="refresh" type="button">Atualizar</button></div><p id="status" aria-live="polite"></p><div class="list"><table><thead><tr><th>Nome</th><th>Parentesco</th><th>Família</th></tr></thead><tbody id="rows"></tbody></table></div><p class="foot">A lista é atualizada ao entrar ou ao tocar em Atualizar.</p></section>
+<section id="dashboard" hidden><div class="counts"><div><strong id="total">0</strong><span>Confirmados</span></div><div><strong id="father">0</strong><span>Do papai</span></div><div><strong id="mother">0</strong><span>Da mamãe</span></div></div><button id="export" class="download" type="button" disabled>Baixar lista completa (CSV)</button><div class="filters" aria-label="Filtrar por família"><button type="button" data-filter="all" aria-pressed="true">Todos</button><button type="button" data-filter="pai" aria-pressed="false">Do papai</button><button type="button" data-filter="mae" aria-pressed="false">Da mamãe</button><button id="refresh" type="button">Atualizar</button></div><p id="status" aria-live="polite"></p><div class="list"><table><thead><tr><th>Nome</th><th>Parentesco</th><th>Família</th><th>Ação</th></tr></thead><tbody id="rows"></tbody></table></div><p class="foot">A lista é atualizada ao entrar ou ao tocar em Atualizar.</p></section>
 </main><script>
 (()=>{
 'use strict';
@@ -22,19 +22,52 @@ if(activationToken){
  else activationToken='';
 }
 function headers(token){return {'apikey':API_KEY,'Authorization':'Bearer '+(token||API_KEY),'Content-Type':'application/json'};}
+const collator=new Intl.Collator('pt-BR',{sensitivity:'base',numeric:true});
+const upper=value=>String(value??'').toLocaleUpperCase('pt-BR');
+const ordered=items=>[...items].sort((a,b)=>collator.compare(a.nome,b.nome)||collator.compare(a.parentesco,b.parentesco));
+function csvCell(value){
+ const text=String(value??'');const safe=/^[\s\u0000-\u001f]*[=+\-@]/u.test(text)?"'"+text:text;
+ return '"'+safe.replace(/"/g,'""')+'"';
+}
+byId('export').addEventListener('click',()=>{
+ const rows=[['NOME','PARENTESCO','FAMÍLIA','DATA DA CONFIRMAÇÃO']];
+ const dateFormat=new Intl.DateTimeFormat('pt-BR',{dateStyle:'short',timeStyle:'short',timeZone:'America/Belem'});
+ for(const guest of ordered(guests)){
+  const date=new Date(guest.created_at);
+  rows.push([upper(guest.nome),upper(guest.parentesco),guest.familia==='pai'?'PAPAI':'MAMÃE',Number.isNaN(date.getTime())?'':dateFormat.format(date)]);
+ }
+ const csv='\ufeff'+rows.map(row=>row.map(csvCell).join(';')).join('\r\n')+'\r\n';
+ const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
+ const link=document.createElement('a');link.href=url;link.download='lista-laura.csv';document.body.appendChild(link);link.click();link.remove();
+ setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+async function removeGuest(guest,button){
+ if(!window.confirm('Excluir '+upper(guest.nome)+' da lista de confirmados?'))return;
+ button.disabled=true;byId('status').textContent='Excluindo confirmação…';
+ try{
+  const response=await fetch(URL_BASE+'/rest/v1/laura_rsvps?id=eq.'+encodeURIComponent(guest.id)+'&select=id',{method:'DELETE',headers:{...headers(accessToken),'Prefer':'return=representation'}});
+  if(!response.ok)throw new Error('delete');
+  const removed=await response.json();if(!Array.isArray(removed)||removed.length!==1||removed[0].id!==guest.id)throw new Error('delete');
+  guests=guests.filter(item=>item.id!==guest.id);render();byId('status').textContent='Confirmação de '+upper(guest.nome)+' excluída.';
+ }catch(_){button.disabled=false;byId('status').textContent='Não foi possível excluir. Confira sua conexão e tente novamente.';}
+}
 function render(){
  byId('total').textContent=guests.length;
  byId('father').textContent=guests.filter(g=>g.familia==='pai').length;
  byId('mother').textContent=guests.filter(g=>g.familia==='mae').length;
  const rows=byId('rows');rows.replaceChildren();
- const visible=guests.filter(g=>filter==='all'||g.familia===filter);
- for(const g of visible){const tr=document.createElement('tr');for(const value of [g.nome,g.parentesco,g.familia==='pai'?'Papai':'Mamãe']){const td=document.createElement('td');td.textContent=value;tr.appendChild(td);}rows.appendChild(tr);}
+ const visible=ordered(guests.filter(g=>filter==='all'||g.familia===filter));
+ byId('export').disabled=!guests.length;
+ for(const g of visible){
+  const tr=document.createElement('tr');for(const value of [upper(g.nome),upper(g.parentesco),g.familia==='pai'?'PAPAI':'MAMÃE']){const td=document.createElement('td');td.textContent=value;tr.appendChild(td);}
+  const action=document.createElement('td'),button=document.createElement('button');button.type='button';button.className='remove';button.textContent='Excluir';button.setAttribute('aria-label','Excluir '+upper(g.nome));button.addEventListener('click',()=>removeGuest(g,button));action.appendChild(button);tr.appendChild(action);rows.appendChild(tr);
+ }
  byId('status').textContent=visible.length?'':'Nenhuma confirmação nesta lista.';
 }
 async function load(){
  byId('status').textContent='Atualizando confirmações…';
  try{
-  const response=await fetch(URL_BASE+'/rest/v1/laura_rsvps?select=nome,parentesco,familia,created_at&order=created_at.desc',{headers:headers(accessToken)});
+  const response=await fetch(URL_BASE+'/rest/v1/laura_rsvps?select=id,nome,parentesco,familia,created_at&order=created_at.desc',{headers:headers(accessToken)});
   if(!response.ok)throw new Error('consulta');
   guests=await response.json();if(!Array.isArray(guests))throw new Error('formato');render();
  }catch(_){byId('status').textContent='Não foi possível carregar. Confira sua internet e toque em Atualizar.';}

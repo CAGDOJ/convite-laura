@@ -121,9 +121,9 @@ html{background:#F5F0E7;color-scheme:light}body{margin:0;padding:22px max(12px,e
           <h2 class="l-form-title">Sua presença<br>é especial</h2>
           <p class="l-copy">Conte quem vem fazer parte<br>dessa história comigo.</p>
           <form id="l-rsvp-form" class="l-form">
-            <label class="l-field" for="l-full-name"><span>Nome completo</span><input id="l-full-name" name="full_name" placeholder="Digite seu nome e sobrenome" autocomplete="name" maxlength="120" minlength="4" required></label>
-            <label class="l-field" for="l-relationship"><span>Grau de parentesco com a Laura</span><select id="l-relationship" name="relationship" required><option value="" disabled selected>Selecione</option><option>Avó</option><option>Avô</option><option>Tia</option><option>Tio</option><option>Prima</option><option>Primo</option><option>Madrinha</option><option>Padrinho</option><option>Amiga da família</option><option>Amigo da família</option><option>Outro</option></select></label>
-            <fieldset class="l-family"><legend>Você é da família de quem?</legend><div class="l-family-options"><label class="l-radio cursor-interaction"><input type="radio" name="family" value="pai" required><span>Do papai</span></label><label class="l-radio cursor-interaction"><input type="radio" name="family" value="mae"><span>Da mamãe</span></label></div></fieldset>
+            <label class="l-field" for="l-full-name"><span>Nome completo</span><input id="l-full-name" name="full_name" placeholder="Digite seu nome e sobrenome" autocomplete="name" autocapitalize="characters" maxlength="120" minlength="4" required></label>
+            <label class="l-field" for="l-relationship"><span>Grau de parentesco com a Laura</span><select id="l-relationship" name="relationship" required><option value="" disabled selected>Selecione</option><option value="Avó">AVÓ</option><option value="Avô">AVÔ</option><option value="Tia">TIA</option><option value="Tio">TIO</option><option value="Prima">PRIMA</option><option value="Primo">PRIMO</option><option value="Madrinha">MADRINHA</option><option value="Padrinho">PADRINHO</option><option value="Amiga da família">AMIGA DA FAMÍLIA</option><option value="Amigo da família">AMIGO DA FAMÍLIA</option><option value="Outro">OUTRO</option></select></label>
+            <fieldset class="l-family"><legend>Você é da família de quem?</legend><div class="l-family-options"><label class="l-radio cursor-interaction"><input type="radio" name="family" value="pai" required><span>DO PAPAI</span></label><label class="l-radio cursor-interaction"><input type="radio" name="family" value="mae"><span>DA MAMÃE</span></label></div></fieldset>
             <p id="l-form-error" class="l-error" role="alert" hidden></p>
             <button class="l-primary cursor-interaction" type="submit">Confirmar minha presença <i data-lucide="check" aria-hidden="true"></i></button>
           </form>
@@ -177,9 +177,18 @@ html{background:#F5F0E7;color-scheme:light}body{margin:0;padding:22px max(12px,e
         }else showScene(button.dataset.go);
       }));
       const form=root.querySelector('#l-rsvp-form');
+      const nameField=root.querySelector('#l-full-name');
+      function uppercaseName(){
+        const value=nameField.value,start=nameField.selectionStart,end=nameField.selectionEnd;
+        const next=value.toLocaleUpperCase('pt-BR');if(value===next)return;
+        nameField.value=next;
+        if(start!==null&&end!==null)nameField.setSelectionRange(value.slice(0,start).toLocaleUpperCase('pt-BR').length,value.slice(0,end).toLocaleUpperCase('pt-BR').length);
+      }
+      nameField.addEventListener('input',event=>{if(!event.isComposing)uppercaseName();});
+      nameField.addEventListener('compositionend',uppercaseName);
       form.addEventListener('submit',async event=>{
         event.preventDefault();if(!form.reportValidity())return;
-        const values=new FormData(form);const name=String(values.get('full_name')||'').trim().replace(/\s+/g,' ');
+        const values=new FormData(form);const name=String(values.get('full_name')||'').trim().replace(/\s+/g,' ').toLocaleUpperCase('pt-BR');
         const error=root.querySelector('#l-form-error');
         if(name.length<4||!name.includes(' ')){error.textContent='Preencha seu nome e sobrenome, por favor.';error.hidden=false;root.querySelector('#l-full-name').focus();return;}
         const submit=form.querySelector('button[type="submit"]');
