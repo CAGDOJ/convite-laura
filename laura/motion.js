@@ -191,6 +191,13 @@
       });
     })();
   };
-  root.dataset.storyStarted = 'true';
-  root.startSceneWriting('cover');
+  let coverStarted = false;
+  root.beginCover = () => {
+    if (coverStarted) return;
+    coverStarted = true;
+    root.dataset.storyStarted = 'true';
+    root.startSceneWriting('cover');
+  };
+  root.dataset.storyStarted = 'waiting';
+  if (root.dataset.entryComplete === 'true') root.beginCover();
 })();

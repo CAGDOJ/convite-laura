@@ -4,7 +4,7 @@
 html{background:#F5F0E7;color-scheme:light}body{margin:0;padding:22px max(12px,env(safe-area-inset-right)) 30px max(12px,env(safe-area-inset-left));background:radial-gradient(ellipse at top,#FFFDF7,#F1EEE5);font-family:Arial,sans-serif;min-width:280px}button,a{-webkit-tap-highlight-color:transparent;cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #7B9FB4;outline-offset:4px}
 .music-panel{max-width:400px;margin:0 auto 20px;background:#FFFDF7;border:1px solid #D9DFD3;border-radius:18px;padding:15px;color:#56674F;box-shadow:0 8px 25px #2638280A}.music-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:14px;margin:0 0 12px}.music-start{color:#AE2A28;background:#F4EAE0;padding:5px 9px;border-radius:99px;font-size:12px}.music-panel iframe{display:block;border:0;border-radius:10px;width:100%;height:200px;min-height:200px}.music-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:12px}.music-actions button{border:1px solid #AE2A28;border-radius:10px;background:#AE2A28;color:#FFF9F0;padding:11px 13px;font-size:13px;min-height:44px}.music-actions a{color:#647D89;font-size:12px;text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center}.music-panel p{font-size:12px;line-height:1.55;margin:10px 0 0;color:#6C7A65}
 @media(min-width:920px){body{padding-top:30px}#laura-story-invite{max-width:480px!important;margin-inline:auto}}
-</style><link rel="stylesheet" href="motion.css?v=4"><link rel="stylesheet" href="forest.css?v=1"><link rel="stylesheet" href="sky.css?v=2"><link rel="stylesheet" href="storybook.css?v=3"><link rel="stylesheet" href="typewriter.css?v=7"><link rel="preload" as="image" href="assets/forest-scene.webp"><link rel="preconnect" href="https://www.youtube.com"><link rel="preconnect" href="https://www.youtube-nocookie.com"><link rel="preconnect" href="https://i.ytimg.com"></head><body>
+</style><link rel="stylesheet" href="motion.css?v=4"><link rel="stylesheet" href="forest.css?v=1"><link rel="stylesheet" href="sky.css?v=2"><link rel="stylesheet" href="storybook.css?v=3"><link rel="stylesheet" href="typewriter.css?v=8"><link rel="preload" as="image" href="assets/forest-scene.webp"><link rel="preconnect" href="https://www.youtube.com"><link rel="preconnect" href="https://www.youtube-nocookie.com"><link rel="preconnect" href="https://i.ytimg.com"></head><body>
 <div id="laura-story-invite">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=Great+Vibes&display=swap');
@@ -74,9 +74,17 @@ html{background:#F5F0E7;color-scheme:light}body{margin:0;padding:22px max(12px,e
     @media(prefers-reduced-motion:reduce){#laura-story-invite *{transition:none!important}}
   </style>
 
+  <section id="laura-entry" class="l-entry" role="dialog" aria-modal="true" aria-labelledby="laura-entry-title">
+    <div class="l-entry-card">
+      <p class="l-entry-kicker">Um convite especial</p>
+      <h2 id="laura-entry-title">Uma história<br>espera por você</h2>
+      <p class="l-entry-copy">Entre e descubra uma pequena surpresa.</p>
+      <button id="laura-enter" class="l-entry-button" type="button" disabled>Entrar no jardim</button>
+    </div>
+  </section>
   <p id="l-preview-status" aria-live="polite" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0"></p>
 
-  <div class="l-preview-area viz-dotted-background">
+  <div id="laura-experience" class="l-preview-area viz-dotted-background" inert>
     <div id="l-guest-preview">
       <div class="l-phone"><div class="l-paper">
         <div class="l-topline">Jardim Encantado</div>
@@ -183,27 +191,16 @@ html{background:#F5F0E7;color-scheme:light}body{margin:0;padding:22px max(12px,e
     })();
   </script>
 
-<section id="laura-music-gate" class="l-music-gate" role="dialog" aria-label="Começar o convite com música" aria-hidden="true" inert>
-  <div class="l-music-card">
-    <span class="l-music-ornament" aria-hidden="true">♪</span>
-    <h2>Vamos começar?</h2>
-    <p id="laura-music-status" role="status">Toque no botão para começar nossa história com música.</p>
-    <button type="button" id="laura-music-control" class="l-music-begin">Começar com música</button>
-    <div id="laura-music-panel" class="music-panel" aria-label="Player da música" aria-hidden="true" inert>
-      <iframe id="laura-youtube-player" width="100%" height="200" loading="eager" title="Música do convite da Laura" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      <a href="https://www.youtube.com/watch?v=O3TP49DfkO0&t=31s" target="_blank" rel="noopener">Ouvir no YouTube</a>
-    </div>
-    <button type="button" id="laura-music-continue" class="l-music-begin" hidden>Já iniciei a música · abrir convite</button>
-    <button type="button" id="laura-music-skip" class="l-music-skip">Continuar sem música</button>
-    <button type="button" id="laura-keys-control" hidden aria-pressed="false">Ativar som das teclas</button>
-  </div>
+<section id="laura-music-panel" class="music-panel" aria-hidden="true" inert>
+  <iframe id="laura-youtube-player" width="320" height="200" loading="eager" title="Trilha do convite" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <button type="button" id="laura-keys-control" hidden aria-pressed="false">Ativar efeitos</button>
 </section>
 </div>
 
-<script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
 <script>document.addEventListener('DOMContentLoaded',function(){if(window.lucide)window.lucide.createIcons();});</script>
-<script src="music.js?v=8" defer></script>
+<script src="music.js?v=9" defer></script>
 <script src="typewriter-sound.js?v=4" defer></script>
 <script src="typewriter.js?v=3" defer></script>
-<script src="motion.js?v=11" defer></script>
+<script src="motion.js?v=12" defer></script>
+<script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
 </body></html>
