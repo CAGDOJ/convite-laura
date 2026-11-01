@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="fade" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#fff9ef" stop-opacity="1"/>
+      <stop offset="0.65" stop-color="#fff9ef" stop-opacity=".92"/>
+      <stop offset="1" stop-color="#fff9ef" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#fff9ef"/>
+  <image x="488" y="0" width="712" height="630" preserveAspectRatio="xMidYMax slice" xlink:href="forest-scene.webp"/>
+  <rect x="454" y="0" width="160" height="630" fill="url(#fade)"/>
+  <rect x="22" y="22" width="1156" height="586" rx="24" fill="none" stroke="#c3cdb9" stroke-width="2"/>
+  <g fill="#61725d" font-family="Nimbus Sans" font-size="23" letter-spacing="3">
+    <text x="74" y="112">CONVITE ESPECIAL</text>
+  </g>
+  <path d="M74 135 H318" stroke="#bdc9b4" stroke-width="2"/>
+  <text x="69" y="267" fill="#a72e29" font-family="Z003" font-size="128">Laura</text>
+  <text x="76" y="338" fill="#a72e29" font-family="Nimbus Roman" font-size="50">1 aninho</text>
+  <text x="76" y="405" fill="#52634d" font-family="Nimbus Sans" font-size="33">Jardim Encantado</text>
+  <path d="M76 438 H408" stroke="#d3dbc9" stroke-width="2"/>
+  <text x="76" y="486" fill="#5a6a56" font-family="Nimbus Sans" font-size="25">18 DE DEZEMBRO  ·  18H</text>
+  <text x="76" y="528" fill="#5a6a56" font-family="Nimbus Sans" font-size="22" letter-spacing="1">CONVITE INDIVIDUAL</text>
+  <text x="76" y="564" fill="#5a6a56" font-family="Nimbus Sans" font-size="22" letter-spacing="1">CONFIRME ATÉ 30/11</text>
+</svg>
