@@ -12,6 +12,7 @@
   let output = null;
   let samples = [];
   let foley = {};
+  let applauseReady = null;
   let strokes = 0;
 
   function usePlaybackSession() {
@@ -58,6 +59,16 @@
       samples = [0, 1, 2, 3].map(variant => makeSample(variant));
       samples.push(makeSample(1, true));
       foley = { hoof: makeFoley('hoof'), bite: makeFoley('bite'), chew: makeFoley('chew'), paper: makeFoley('paper'), ready: makeFoley('ready') };
+      const audioContext = context;
+      // Adapted from a CC0 recording by craigsmith: https://freesound.org/people/craigsmith/sounds/480683/
+      applauseReady = fetch('assets/aplausos.mp3')
+        .then(response => { if (!response.ok) throw new Error('Applause unavailable'); return response.arrayBuffer(); })
+        .then(data => audioContext.decodeAudioData(data))
+        .then(buffer => { if (context === audioContext) foley.applause = buffer; return buffer; })
+        .catch(() => {
+          if (context !== audioContext) return null;
+          try { return foley.applause = makeApplause(); } catch (_) { return null; }
+        });
       context.addEventListener('statechange', render);
     } catch (_) {
       context = null;
@@ -123,17 +134,51 @@
     return buffer;
   }
 
+  // A small fallback keeps the celebration audible if the recording cannot load.
+  function makeApplause() {
+    const duration = 3;
+    const rate = context.sampleRate;
+    const buffer = context.createBuffer(1, Math.ceil(rate * duration), rate);
+    const data = buffer.getChannelData(0);
+    for (let clap = 0; clap < 66; clap++) {
+      const start = Math.floor((.04 + Math.random() * 2.65) * rate);
+      const length = Math.floor((.035 + Math.random() * .035) * rate);
+      let low = 0;
+      for (let i = 0; i < length && start + i < data.length; i++) {
+        const t = i / rate;
+        const noise = Math.random() * 2 - 1;
+        low = low * .72 + noise * .28;
+        const envelope = Math.min(1, t / .001) * Math.exp(-t * 52);
+        data[start + i] += (noise * .45 + low * .55) * envelope * .36;
+      }
+    }
+    for (let i = 0; i < data.length; i++) {
+      const fade = Math.min(1, (data.length - i) / (rate * .35));
+      data[i] = Math.max(-1, Math.min(1, data[i] * fade));
+    }
+    return buffer;
+  }
+
   function effect(kind, variation = 0) {
-    if (!enabled || document.visibilityState !== 'visible' || context?.state !== 'running' || !foley[kind]) return;
-    const source = context.createBufferSource();
-    source.buffer = foley[kind];
-    source.playbackRate.value = 1 + variation * .025;
-    const gain = context.createGain();
-    gain.gain.value = kind === 'ready' ? .75 : kind === 'paper' ? .95 : kind === 'hoof' ? .9 : kind === 'bite' ? 1.35 : .85;
-    source.connect(gain);
-    gain.connect(output);
-    source.onended = () => { source.disconnect(); gain.disconnect(); };
-    source.start(context.currentTime);
+    if (!enabled || document.visibilityState !== 'visible' || context?.state !== 'running') return;
+    if (kind === 'applause' && !foley.applause && applauseReady) {
+      applauseReady.then(buffer => { if (buffer && root.dataset.storyScene === 'thanks') effect(kind, variation); });
+      return;
+    }
+    if (!foley[kind]) return;
+    try {
+      const source = context.createBufferSource();
+      source.buffer = foley[kind];
+      source.playbackRate.value = 1 + variation * .025;
+      const gain = context.createGain();
+      gain.gain.value = kind === 'applause' ? 1.5 : kind === 'ready' ? .75 : kind === 'paper' ? .95 : kind === 'hoof' ? .9 : kind === 'bite' ? 1.35 : .85;
+      source.connect(gain);
+      gain.connect(output);
+      source.onended = () => { source.disconnect(); gain.disconnect(); };
+      source.start(context.currentTime);
+    } catch (_) {
+      // An interrupted audio device must not interrupt the invitation.
+    }
   }
 
   function strike(token) {
