@@ -56,12 +56,18 @@
     }, 7000);
   }
 
-  opener.addEventListener('click', () => {
+  function startWithOpeningGesture() {
     openingRequested = true;
     userPaused = false;
     root.dataset.musicPhase = 'opened';
-    requestPlayback();
+    if (!playing) requestPlayback();
+  }
+  // On phones pointerup is still part of the same tap, before click is
+  // dispatched. Keyboard and older browsers keep the click fallback.
+  opener.addEventListener('pointerup', event => {
+    if (!opener.disabled && event.button === 0) startWithOpeningGesture();
   }, { capture: true });
+  opener.addEventListener('click', startWithOpeningGesture, { capture: true });
 
   document.addEventListener('pointerdown', () => {
     // Reuse a later guest interaction if the browser blocked the first attempt.
