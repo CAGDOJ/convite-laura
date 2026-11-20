@@ -29,14 +29,30 @@ footer{padding:36px 24px 45px;border-top:1px solid var(--line);background:#08141
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:none}
 @media(max-width:720px){nav{padding:18px 20px}.brand{font-size:10px}.orbit{width:300px;height:300px}.hero{padding:110px 18px 88px}.hero h1{font-size:clamp(68px,17vw,115px)}.hero .lead{font-size:14px;max-width:300px}.intro-grid{grid-template-columns:1fr;gap:45px}.section{padding:76px 0}.photo-frame{margin:0 auto;max-width:390px}.photo-frame img{height:470px}.scripture{padding:80px 22px}.gallery{padding:80px 0 68px}.slide{width:82vw;aspect-ratio:3/4}.values{padding:88px 0}.values-grid{grid-template-columns:1fr;gap:18px}.value{padding:22px 0 8px}.value h3{font-size:35px}.invite{padding:90px 22px}.nav-link{font-size:11px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+
+/* Identidade original Sião Rede e reprodução oficial */
+.brand-logo{width:86px;height:47px;object-fit:contain;object-position:center;flex:none;filter:drop-shadow(0 1px 4px #0005)}
+.hero-network-logo{display:block;width:clamp(160px,26vw,230px);height:auto;max-height:126px;margin:0 auto 22px;object-fit:contain;filter:drop-shadow(0 4px 18px #0009)}
+.music-widget{position:fixed;right:max(14px,env(safe-area-inset-right));bottom:max(14px,env(safe-area-inset-bottom));z-index:45;display:flex;align-items:flex-end;flex-direction:column;gap:10px}
+.music-toggle{color:#121e22;background:var(--gold-light);border:1px solid #fff8;border-radius:999px;box-shadow:0 8px 28px #0007;cursor:pointer;font:700 12px 'DM Sans',sans-serif;letter-spacing:.04em;min-height:48px;padding:0 19px}
+.music-toggle:hover{background:white}
+.music-panel{background:#0d1b22f7;backdrop-filter:blur(18px);border:1px solid #f3dba261;border-radius:18px;box-shadow:0 18px 55px #0009;padding:14px;width:min(400px,calc(100vw - 28px));color:white}
+.music-panel[hidden]{display:none}
+.music-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:2px 0 12px}
+.music-head strong{font-size:13px;font-weight:700}.music-head small{display:block;color:#c1b69c;margin-top:5px;font-size:11px}
+.music-close{display:grid;place-items:center;color:white;background:#ffffff19;border:1px solid #ffffff33;border-radius:50%;width:34px;height:34px;flex:none;cursor:pointer;font-size:22px}
+.music-frame{width:100%;height:210px;display:block;border:0;border-radius:10px;background:#000}
+.music-foot{font-size:11px;line-height:1.5;color:#c2cac8;margin:10px 0 0}
+.music-foot a{color:var(--gold-light);text-underline-offset:3px}
+@media(max-width:720px){.brand-logo{width:68px;height:39px}.brand{gap:7px}.hero-network-logo{max-height:112px}.hero h1{font-size:clamp(62px,16vw,108px)}.music-toggle{min-height:44px}.music-panel{padding:12px}.music-frame{height:205px}}
 </style>
 </head>
 <body>
-<nav aria-label="Navegação principal"><a class="brand" href="#inicio"><span class="symbol" aria-hidden="true">✝</span><span>Célula<br>Esquenta</span></a><a class="nav-link" href="#momentos">Nossos momentos ↗</a></nav>
+<nav aria-label="Navegação principal"><a class="brand" href="#inicio"><img class="brand-logo" src="assets/logo-siao-rede.svg" alt="Sião Rede" width="94" height="52"><span>Célula<br>Esquenta</span></a><a class="nav-link" href="#momentos">Nossos momentos ↗</a></nav>
 <main>
 <section class="hero" id="inicio" aria-label="Boas-vindas à célula">
 <div class="orbit" aria-hidden="true"></div><span class="spark" aria-hidden="true"></span><span class="spark" aria-hidden="true"></span><span class="spark" aria-hidden="true"></span><span class="spark" aria-hidden="true"></span>
-<div class="hero-core"><span class="tiny-cross" aria-hidden="true">✝</span><p class="eyebrow">Um lugar para chamar de família</p><h1>Célula<span>Esquenta</span></h1><p class="lead">Entre tantas histórias, Deus nos reuniu para escrever uma só. E ainda há espaço para você.</p><button class="open-btn" type="button" id="abrir">Conheça nossa história &nbsp; ↓</button></div>
+<div class="hero-core"><img class="hero-network-logo" src="assets/logo-siao-rede.svg" width="230" height="124" alt="Sião Rede"><p class="eyebrow">Um lugar para chamar de família</p><h1>Célula<span>Esquenta</span></h1><p class="lead">Entre tantas histórias, Deus nos reuniu para escrever uma só. E ainda há espaço para você.</p><button class="open-btn" type="button" id="abrir">Conheça nossa história &nbsp; ↓</button></div>
 <span class="scroll-cue" aria-hidden="true">Fé • Comunhão • Propósito</span>
 </section>
 <section class="section intro" id="historia"><div class="container intro-grid"><div class="reveal"><p class="eyebrow">Uma história construída juntos</p><h2>Não é só um<br><em>encontro.</em><br>É pertencimento.</h2><p>Algumas pessoas chegam como visitas e, com o tempo, tornam-se família. Entre abraços, orações, risadas e conversas sinceras, aprendemos que caminhar com Deus também é caminhar uns com os outros.</p><p>Aqui, cada história importa. E os melhores capítulos ainda estão por vir.</p></div><div class="photo-frame reveal"><img src="assets/momento-06.webp" alt="Pessoas reunidas em um encontro da célula, sorrindo para uma fotografia" loading="lazy"></div></div></section>
@@ -55,11 +71,25 @@ footer{padding:36px 24px 45px;border-top:1px solid var(--line);background:#08141
 </div><div class="film-tools"><button type="button" class="round" id="prev" aria-label="Fotografia anterior">←</button><span class="counter" id="counter">01 / 10</span><button type="button" class="round" id="next" aria-label="Próxima fotografia">→</button></div><p class="gallery-note">Deslize para reviver os momentos</p></div></section>
 <section class="values"><div class="container values-grid"><article class="value reveal"><span class="number">01 ✦</span><h3>Fé que fortalece</h3><p>Um espaço para ouvir a Palavra, compartilhar desafios e crescer juntos na presença de Deus.</p></article><article class="value reveal"><span class="number">02 ✦</span><h3>Amizades que acolhem</h3><p>Aqui ninguém precisa fingir perfeição. A gente aprende a cuidar uns dos outros.</p></article><article class="value reveal"><span class="number">03 ✦</span><h3>Amor que transforma</h3><p>Mais do que momentos registrados, queremos construir memórias que tenham significado.</p></article></div></section>
 <section class="invite" id="convite"><div class="container reveal"><span class="eyebrow">Você também faz parte dessa história</span><h2>Talvez o próximo capítulo<br>comece com <em style="color:var(--gold);font-weight:400">você.</em></h2><p>Se esta mensagem chegou até você, receba nosso carinho. A nossa caminhada é feita de portas abertas, fé e pessoas de verdade.</p><button type="button" class="share-btn" id="compartilhar">Compartilhar esta história ↗</button><p id="status" class="copy-status" role="status" aria-live="polite"></p></div></section>
-</main><footer><div class="footer-cross" aria-hidden="true">✝</div><p>“Acima de tudo, porém, revistam-se do amor.”<br>Colossenses 3:14</p><p class="credit">Experiência digital por <a href="https://instagram.com/techcaju" target="_blank" rel="noopener noreferrer">TechCaju • Carlos Júnior</a></p></footer>
+</main>
+<div class="music-widget" aria-label="Música do convite">
+  <section id="musicPanel" class="music-panel" hidden aria-label="Reprodutor Primavera de IIR Music">
+    <div class="music-head"><div><strong>♪ Primavera (Ao Vivo)</strong><small>IIR Music • Trilha da nossa história</small></div><button type="button" class="music-close" id="musicClose" aria-label="Parar a música e fechar">×</button></div>
+    <div id="musicMount"></div>
+    <p class="music-foot">Reprodução pelo canal oficial. Caso o celular bloqueie o início automático, toque no vídeo. <a href="https://www.youtube.com/watch?v=cwDzMKP26W4" target="_blank" rel="noopener noreferrer">Abrir no YouTube</a>.</p>
+  </section>
+  <button id="musicToggle" class="music-toggle" type="button" aria-controls="musicPanel" aria-expanded="false">♫ Ouvir Primavera</button>
+</div>
+<footer><div class="footer-cross" aria-hidden="true">✝</div><p>“Acima de tudo, porém, revistam-se do amor.”<br>Colossenses 3:14</p><p class="credit">Experiência digital por <a href="https://instagram.com/techcaju" target="_blank" rel="noopener noreferrer">TechCaju • Carlos Júnior</a></p></footer>
 <script>
 (()=>{'use strict';
 const byId=id=>document.getElementById(id);
-byId('abrir').addEventListener('click',()=>byId('historia').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'}));
+const musicPanel=byId('musicPanel'),musicMount=byId('musicMount'),musicToggle=byId('musicToggle');
+function stopMusic(){musicMount.replaceChildren();musicPanel.hidden=true;musicToggle.textContent='♫ Ouvir Primavera';musicToggle.setAttribute('aria-expanded','false')}
+function startMusic(){if(!musicPanel.hidden)return;musicPanel.hidden=false;musicToggle.textContent='♫ Pausar música';musicToggle.setAttribute('aria-expanded','true');const frame=document.createElement('iframe');frame.className='music-frame';frame.title='Primavera (Ao Vivo) — IIR Music, vídeo oficial';frame.src='https://www.youtube-nocookie.com/embed/cwDzMKP26W4?autoplay=1&playsinline=1&rel=0';frame.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';frame.allowFullscreen=true;frame.referrerPolicy='strict-origin-when-cross-origin';musicMount.append(frame)}
+musicToggle.addEventListener('click',()=>musicPanel.hidden?startMusic():stopMusic());
+byId('musicClose').addEventListener('click',stopMusic);
+byId('abrir').addEventListener('click',()=>{startMusic();byId('historia').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})});
 const film=byId('film'),slides=Array.from(film.querySelectorAll('.slide')),counter=byId('counter');
 let active=0;const update=()=>{const center=film.scrollLeft+film.clientWidth/2;let nearest=0,dist=Infinity;slides.forEach((slide,i)=>{const x=slide.offsetLeft+slide.offsetWidth/2,d=Math.abs(x-center);if(d<dist){dist=d;nearest=i}});active=nearest;counter.textContent=String(active+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0')};
 const go=dir=>{update();const idx=(active+dir+slides.length)%slides.length;const s=slides[idx];film.scrollTo({left:s.offsetLeft-(film.clientWidth-s.clientWidth)/2,behavior:'smooth'});counter.textContent=String(idx+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0')};
