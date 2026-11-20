@@ -157,6 +157,13 @@ input,select{width:100%;border:1px solid #d9cfc8;background:#fff;border-radius:1
 .concept-entry .btn{min-height:52px;width:100%;margin:7px auto 14px}
 .concept-entry small{display:block;color:#9a8170;font-size:10px;line-height:1.5}
 
+
+/* Contato comercial com o desenvolvedor, sem confundir com o atendimento do studio */
+.locked-actions{display:flex;flex-direction:column;gap:10px;margin-top:21px}
+.locked-actions .btn{width:100%;min-height:48px;text-align:center;padding:13px 14px}
+.locked-actions .contact-developer{background:#247c50;color:white;box-shadow:none}
+.locked-actions .contact-developer:hover{background:#1b6641}
+
 </style>
 </head>
 <body>
@@ -319,7 +326,7 @@ input,select{width:100%;border:1px solid #d9cfc8;background:#fff;border-radius:1
 
 <div class="mobile-cta"><span>Agenda ainda em <strong>prévia</strong></span><button class="btn btn-primary lock-open" type="button">Agendar ↗</button></div>
 
-<div class="modal-wrap" id="locked-modal"><div class="modal"><button class="close" type="button" data-close="locked-modal">×</button><div class="eyebrow">Prévia comercial</div><h2>Atendimento ainda não desbloqueado.</h2><p>Essa é apenas uma <strong>apresentação da experiência digital da Cachos Concept</strong>. Nesta fase, a cliente consegue visualizar os serviços, a agenda e a organização do atendimento, mas nenhum horário é reservado e nenhuma mensagem é enviada.</p><button class="btn btn-primary" type="button" data-close="locked-modal">Entendi, voltar à prévia</button></div></div>
+<div class="modal-wrap" id="locked-modal"><div class="modal"><button class="close" type="button" data-close="locked-modal">×</button><div class="eyebrow">Prévia comercial</div><h2>Atendimento ainda não desbloqueado.</h2><p>Essa é apenas uma <strong>apresentação da experiência digital da Cachos Concept</strong>. Nesta fase, a cliente consegue visualizar os serviços, a agenda e a organização do atendimento, mas nenhum horário é reservado e nenhuma mensagem é enviada.</p><div class="locked-actions"><a class="btn btn-primary contact-developer" href="https://wa.me/5591982116980?text=Ol%C3%A1!%20Vi%20a%20pr%C3%A9via%20da%20Cachos%20Concept%20e%20gostaria%20de%20falar%20com%20o%20desenvolvedor%20sobre%20a%20ativa%C3%A7%C3%A3o%20do%20sistema%20de%20atendimento." target="_blank" rel="noopener noreferrer" aria-label="Falar com o desenvolvedor pelo WhatsApp">✆ Falar com o desenvolvedor</a><button class="btn btn-secondary" type="button" data-close="locked-modal">Entendi, voltar à prévia</button></div></div></div>
 
 <div class="modal-wrap" id="config-modal"><div class="modal"><button class="close" type="button" data-close="config-modal">×</button><div class="eyebrow">Painel demonstrativo</div><h2>Configurar atendimento</h2><p>Numa versão contratada, a gestora poderia ajustar dias de atendimento, horário inicial, final, intervalo e bloqueios. Aqui mostramos isso só como conceito.</p><div class="weekday-buttons" id="weekday-buttons"><button class="active" type="button">Terça</button><button type="button">Quarta</button><button type="button">Quinta</button><button type="button">Sexta</button><button type="button">Sábado</button></div><div class="config-grid"><div><label>Início</label><select><option>09:00</option><option>10:00</option><option>11:00</option></select></div><div><label>Término</label><select><option>18:00</option><option>17:00</option><option>16:00</option></select></div><div><label>Intervalo</label><select><option>60 minutos</option><option>30 minutos</option><option>90 minutos</option></select></div><div><label>Disponibilidade</label><select><option>Atendimentos liberados</option><option>Dia bloqueado</option></select></div></div><div class="config-preview">Exemplo visual: terça-feira com horários de 09:00 às 18:00, intervalo de 60 minutos e atendimento liberado.</div><button class="btn btn-primary lock-open" type="button" style="width:100%;margin-top:18px">Simular salvamento ↗</button></div></div>
 
