@@ -123,13 +123,34 @@ input,select{width:100%;border:1px solid #d9cfc8;background:#fff;border-radius:1
 .mobile-cta{display:none}
 @media(max-width:1020px){.hero,.grid-2,.agenda-wrap{grid-template-columns:1fr}.hero-copy{order:2}.hero-visual{order:1}.services,.insta-grid{grid-template-columns:repeat(2,1fr)}.quality-grid,.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){.nav{min-height:72px}.brand img{width:48px;height:48px}.brand-name{font-size:24px}.brand-sub{font-size:9px}.navlinks{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;background:#f7f1ea;padding:8px 20px 18px;border-bottom:1px solid var(--line);box-shadow:0 20px 30px rgba(0,0,0,.08)}.navlinks.open{display:flex}.navlinks a{padding:11px 0}.nav-actions .btn{display:none}.menu{display:block}.hero{padding:34px 0 54px;gap:22px}.hero h1{font-size:52px}.hero p,.section-copy{font-size:14px;line-height:1.72}.main-photo{min-height:350px}.mini-photo{min-height:168px}.logo-badge{left:12px;right:12px;bottom:12px}.section{padding:64px 0}.services,.insta-grid,.quality-grid,.footer-grid{grid-template-columns:1fr}.grid-2{gap:18px}.agenda-wrap{gap:24px}.inputs{grid-template-columns:1fr}.modal h2{font-size:30px}.mobile-cta{display:flex;position:sticky;bottom:0;z-index:40;padding:12px 16px;background:rgba(255,250,246,.94);backdrop-filter:blur(8px);border-top:1px solid var(--line);justify-content:space-between;gap:12px;align-items:center}.mobile-cta span{font-size:12px;color:#6c5d54;line-height:1.3}.mobile-cta .btn{padding:12px 16px;font-size:12px;white-space:nowrap}}
+
+/* Logomarca original fornecida por imagem do perfil; reels verdadeiros incorporados */
+.header .brand img{width:64px;height:64px;object-fit:contain;background:#fff;padding:3px;border:1px solid #e3d5c6}
+.logo-badge img{width:61px;height:61px;object-fit:contain;background:#fff}
+.reels-section{padding-top:55px;background:#fffaf6}
+.reel-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:30px}
+.reel-card{border:1px solid var(--line);overflow:hidden;border-radius:25px;background:#f7f0e9;box-shadow:0 12px 32px #35282213;min-width:0}
+.reel-stage{position:relative;aspect-ratio:9/13;background:#392921;overflow:hidden}
+.reel-poster{width:100%;height:100%;position:absolute;inset:0;border:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;background-size:cover;background-position:center;background-color:#6c5146;color:white;padding:24px;cursor:pointer}
+.reel-poster:hover .reel-play{transform:scale(1.06)}
+.reel-play{height:66px;width:66px;display:grid;place-items:center;border:1px solid #ffffffb5;border-radius:50%;background:#2b221bb8;font-size:21px;transition:transform .2s}
+.reel-play-label{font-size:12px;font-weight:750;letter-spacing:.03em;text-shadow:0 1px 5px #000}
+.reel-frame{display:none;border:0;width:100%;height:100%;background:#fff}
+.reel-card.playing .reel-poster{display:none}
+.reel-card.playing .reel-frame{display:block}
+.reel-text{padding:23px}
+.reel-text h3{font:400 27px/1.18 var(--serif);margin:10px 0}
+.reel-text p{color:var(--muted);font-size:13px;line-height:1.65;margin:0 0 17px}
+.reel-text a{font-size:12px;font-weight:800;color:var(--terracotta-dark);text-decoration:underline;text-underline-offset:4px}
+@media(max-width:900px){.reel-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.header .brand img{width:53px;height:53px}.reel-grid{grid-template-columns:1fr;gap:17px}.reel-stage{aspect-ratio:9/12}.reels-section{padding-top:40px}.reel-text{padding:19px}.reel-text h3{font-size:25px}}
 </style>
 </head>
 <body>
 <div class="topbar">Prévia comercial independente · <strong>atendimento online ainda não habilitado</strong></div>
 <header class="header">
   <div class="wrap nav">
-    <a class="brand" href="#inicio"><img src="https://scontent.cdninstagram.com/v/t51.82787-19/629092321_18530751625071904_5049475528833539859_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=109&ig_cache_key=GOEvfyUgjQjUntVBABOfJn49VxNGbmNDAQAB1501500j-ccb7-5&ccb=7-5&_nc_sid=669407&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=mWmUIoFZtD0Q7kNvwFVCQFf&_nc_oc=AdqM2KjoPAcWC-uSBPJ_-YgOb3Hoe8XxaykxRQBOwzs53453FkQAGQuB_jl9rZ0Ufjs&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_gid=BzcQ75zDLsv6v0YrK2TVCg&_nc_ss=7ba8c&_nc_ct=RQosPBUC" alt="Logo Cachos Concept"><span class="brand-block"><span class="brand-name">Cachos <em>Concept</em></span><span class="brand-sub">Studio especializado em cabelos naturais</span></span></a>
+    <a class="brand" href="#inicio"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMQAAADEAQAAAADo3bPGAAAFiklEQVR42u1YTY8UVRQ99TFMi4MUMpgGNTSICWFjswKN2KUuRBODmGjYgP0LjIkugOh0DRoDK0h0CZlhYWIMJLNTjEkXhmRYKD3BREwY7VIwKiEz1dOdme7pqrou3ke9V1P1D6Y2XenT777z7j3347VByH86JoqedWQdyUEGbvpO2tOdFW+hrWnM2fxXvrU7FG6q5CMujBu5yJPXXDyRg/xZMkd92DkI9QrOs9s3g1yEjnu0GwCtOWmyQskhIkrESSUSt/jLLo4Ia5Mvhvztd1fbJ6Y3fY4YdW2frrRPtUXN2nzK6XBJWzNFQ7GmM9S4VTEqkOiUZu0I9YU161lGjjlQKxf7O4wjAQAZChL2ywA6bE1iKUjJVk5qFKoqUb+yVSRSkWSDgvymrRlxpQ+SmqrGiKakDwa6UKklfbCaoVWR+3QLc+GRQiQsRPxCZDrzZV8g5GYQR0QhtjJIZPNKHnsZJBHWkuzmtrC2uCW7xuTWgsJ6sDn7Ja3JU5F0ppdFfuafsc8RGesJh7/UObIkzL88XlCREuMd1U9EdJcHOTjU30lERMM218EvTBiNsfBUO0VMAPeZG89tubOXb+HwfW4CAIZ3G8f+ZTGkksagN15522Y1zIwYIpInwvkjLB7GWZ21PZl4vek0QEQR47wSfELbvc1ERHSNsY4ZsvzYdtq6syURm8UJwOpCG8+8rnmHZ3V39iHemCxLn9mAHVQA4FLza7zS37cgBCfLJt1yI9iT21gSM27dNhHRZLv2H42HH7Fix/zGfvBtNVgxjls/SiFIa99RZdF4CyckA1MI8U6/PHfgcKmqxbQCAP35san7XyYl6R3ht6Tx7oYXHlRwXdYU6dHV0BpWJ60vtDUBAAxPB+/HOHPCEyc1+bK4F1apZFxmBjYqDAavkbEAzCSeuo8PoDcxcbEHbIvZIi9lUIpvn97oBfOn13Drr85/bs1W3+tpiecCwKe/PrdjIpgqrdH1lu+v0rkPtyr5JxhEwQ7nyme2r0d7DsDIwT3Xrw6cOs8gHwDRChFRdP788/dGWz5LBmqm3dk4esLddLIaax29y4pnPLxHRG3ehCg0gREPgOlF/SuZ3Ofd6qlhqFTgBoUiF2jfWNfXyqPMkm9GVWM+i48HAJtuzyhIneV2jYjIComIIn6eNsvgjwHg5h9ebDo39mp+swFg/1H8PbtkzWjISQAwjyE50LioMWCl12ggwKuB0hlk319qEHH3Ek1RaAKJWvx5TF2W26yFrxIR0aLoQKEJmKHSBVnkEodxq6fFU+ifcYObbRaIptXq0lcbtKsihqKbUaZe3prt+toa70sL4lnmCCNVynY7ER+aWky9s8wrrAsApDU7T9HB0FeazUCtIQ8iR/GoymCPH6ZNN1Tyhw5MV1JrTVWjXNAsCj8wbkYF2ZYWqz4YTXeQVYy7raqsOciRJgBY9UyrlWss1u303HbXDF0C6bgAjDNqsxe1qg6AFSkeK7FPvwqArudNG2UAdNnLQRwAzNXkaR51PACJ6+rqNgEMfACrFxRfB2I+OAtEUdlJT+UoPjDVcAaB3hvTYSUQ8wHmAMLeEfmbhmTtAubjM4Ygxw4t1mDg4wIfLyg9aQXAyAfYI/KK1CnNMH086rEkiiBmF/YTF4bDZTAUipey6lCTiKj1j5g6U8EZRET9Wjp1eiJmy0z7jmBg+EAST4ssHmMyMQGg7iAhLy1TvkR2BcBDEbEKD58JADUgOiiSPuSkha9XpATHxRjMc2NB3j5Cq6XcJBb5mNJMR2p+k+h4T2dULfbZeelW0Y3yq3KeMgDgpTRv+rm30A0gbz4XGfEScy73ftqsxfJYmTutR0W33cAouu22BkXWymaBtcD5qWgf62RapfU6kA772f9qrPV/I9YR/fkfZGXiILD0sX0AAAAASUVORK5CYII=" alt="Logo Cachos Concept"><span class="brand-block"><span class="brand-name">Cachos <em>Concept</em></span><span class="brand-sub">Studio especializado em cabelos naturais</span></span></a>
     <nav class="navlinks" id="navlinks"><a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#instagram">Instagram</a><a href="#agenda">Agenda</a></nav>
     <div class="nav-actions"><button class="btn btn-secondary lock-open" type="button">Configurar atendimento</button><button class="btn btn-primary lock-open" type="button">Agendar experiência ↗</button><button class="menu" id="menu" type="button" aria-label="Abrir menu">☰</button></div>
   </div>
@@ -145,7 +166,7 @@ input,select{width:100%;border:1px solid #d9cfc8;background:#fff;border-radius:1
     <div class="hero-note">✦ Esta versão é uma prévia. Ao clicar para agendar, o site informa que a agenda ainda não foi desbloqueada.</div>
   </div>
   <div class="hero-visual">
-    <div class="main-photo"><img src="https://sereiacomunicacao.my.canva.site/cachos-concept/_assets/video/ae4d108f62b5631600cc66442a43c8e6.jpg" alt="Referência visual de resultado cacheado na Cachos Concept"><div class="logo-badge"><img src="https://scontent.cdninstagram.com/v/t51.82787-19/629092321_18530751625071904_5049475528833539859_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=109&ig_cache_key=GOEvfyUgjQjUntVBABOfJn49VxNGbmNDAQAB1501500j-ccb7-5&ccb=7-5&_nc_sid=669407&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=mWmUIoFZtD0Q7kNvwFVCQFf&_nc_oc=AdqM2KjoPAcWC-uSBPJ_-YgOb3Hoe8XxaykxRQBOwzs53453FkQAGQuB_jl9rZ0Ufjs&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_gid=BzcQ75zDLsv6v0YrK2TVCg&_nc_ss=7ba8c&_nc_ct=RQosPBUC" alt=""><span><strong>Cachos Concept</strong><br>studio especializado em cabelos naturais</span></div></div>
+    <div class="main-photo"><img src="https://sereiacomunicacao.my.canva.site/cachos-concept/_assets/video/ae4d108f62b5631600cc66442a43c8e6.jpg" alt="Referência visual de resultado cacheado na Cachos Concept"><div class="logo-badge"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMQAAADEAQAAAADo3bPGAAAFiklEQVR42u1YTY8UVRQ99TFMi4MUMpgGNTSICWFjswKN2KUuRBODmGjYgP0LjIkugOh0DRoDK0h0CZlhYWIMJLNTjEkXhmRYKD3BREwY7VIwKiEz1dOdme7pqrou3ke9V1P1D6Y2XenT777z7j3347VByH86JoqedWQdyUEGbvpO2tOdFW+hrWnM2fxXvrU7FG6q5CMujBu5yJPXXDyRg/xZMkd92DkI9QrOs9s3g1yEjnu0GwCtOWmyQskhIkrESSUSt/jLLo4Ia5Mvhvztd1fbJ6Y3fY4YdW2frrRPtUXN2nzK6XBJWzNFQ7GmM9S4VTEqkOiUZu0I9YU161lGjjlQKxf7O4wjAQAZChL2ywA6bE1iKUjJVk5qFKoqUb+yVSRSkWSDgvymrRlxpQ+SmqrGiKakDwa6UKklfbCaoVWR+3QLc+GRQiQsRPxCZDrzZV8g5GYQR0QhtjJIZPNKHnsZJBHWkuzmtrC2uCW7xuTWgsJ6sDn7Ja3JU5F0ppdFfuafsc8RGesJh7/UObIkzL88XlCREuMd1U9EdJcHOTjU30lERMM218EvTBiNsfBUO0VMAPeZG89tubOXb+HwfW4CAIZ3G8f+ZTGkksagN15522Y1zIwYIpInwvkjLB7GWZ21PZl4vek0QEQR47wSfELbvc1ERHSNsY4ZsvzYdtq6syURm8UJwOpCG8+8rnmHZ3V39iHemCxLn9mAHVQA4FLza7zS37cgBCfLJt1yI9iT21gSM27dNhHRZLv2H42HH7Fix/zGfvBtNVgxjls/SiFIa99RZdF4CyckA1MI8U6/PHfgcKmqxbQCAP35san7XyYl6R3ht6Tx7oYXHlRwXdYU6dHV0BpWJ60vtDUBAAxPB+/HOHPCEyc1+bK4F1apZFxmBjYqDAavkbEAzCSeuo8PoDcxcbEHbIvZIi9lUIpvn97oBfOn13Drr85/bs1W3+tpiecCwKe/PrdjIpgqrdH1lu+v0rkPtyr5JxhEwQ7nyme2r0d7DsDIwT3Xrw6cOs8gHwDRChFRdP788/dGWz5LBmqm3dk4esLddLIaax29y4pnPLxHRG3ehCg0gREPgOlF/SuZ3Ofd6qlhqFTgBoUiF2jfWNfXyqPMkm9GVWM+i48HAJtuzyhIneV2jYjIComIIn6eNsvgjwHg5h9ebDo39mp+swFg/1H8PbtkzWjISQAwjyE50LioMWCl12ggwKuB0hlk319qEHH3Ek1RaAKJWvx5TF2W26yFrxIR0aLoQKEJmKHSBVnkEodxq6fFU+ifcYObbRaIptXq0lcbtKsihqKbUaZe3prt+toa70sL4lnmCCNVynY7ER+aWky9s8wrrAsApDU7T9HB0FeazUCtIQ8iR/GoymCPH6ZNN1Tyhw5MV1JrTVWjXNAsCj8wbkYF2ZYWqz4YTXeQVYy7raqsOciRJgBY9UyrlWss1u303HbXDF0C6bgAjDNqsxe1qg6AFSkeK7FPvwqArudNG2UAdNnLQRwAzNXkaR51PACJ6+rqNgEMfACrFxRfB2I+OAtEUdlJT+UoPjDVcAaB3hvTYSUQ8wHmAMLeEfmbhmTtAubjM4Ygxw4t1mDg4wIfLyg9aQXAyAfYI/KK1CnNMH086rEkiiBmF/YTF4bDZTAUipey6lCTiKj1j5g6U8EZRET9Wjp1eiJmy0z7jmBg+EAST4ssHmMyMQGg7iAhLy1TvkR2BcBDEbEKD58JADUgOiiSPuSkha9XpATHxRjMc2NB3j5Cq6XcJBb5mNJMR2p+k+h4T2dULfbZeelW0Y3yq3KeMgDgpTRv+rm30A0gbz4XGfEScy73ftqsxfJYmTutR0W33cAouu22BkXWymaBtcD5qWgf62RapfU6kA772f9qrPV/I9YR/fkfZGXiILD0sX0AAAAASUVORK5CYII=" alt=""><span><strong>Cachos Concept</strong><br>studio especializado em cabelos naturais</span></div></div>
     <div class="mini-col"><div class="mini-photo"><img src="https://sereiacomunicacao.my.canva.site/cachos-concept/_assets/video/eaa7986b1627eb0db801c3a264169553.jpg" alt="Referência de conteúdo educativo da Cachos Concept"></div><div class="mini-photo"><img src="https://sereiacomunicacao.my.canva.site/cachos-concept/_assets/video/c0be2c87e18ff1538be0ce3f88dac41a.jpg" alt="Referência de hábitos e cuidados para cacheadas"></div></div>
   </div>
 </section>
@@ -185,15 +206,49 @@ input,select{width:100%;border:1px solid #d9cfc8;background:#fff;border-radius:1
     <h2 class="section-title">Mais presença de <em>conteúdo, qualidade e resultados</em>.</h2>
     <p class="section-copy">Adicionei ao layout temas que aparecem no perfil da marca: campanhas, educação capilar, hábitos para cacheadas, qualidade de produtos e resultados que valorizam a curvatura natural.</p>
     <div class="insta-grid">
-      <article class="post-card"><div class="post-thumb"><img src="https://sereiacomunicacao.my.canva.site/cachos-concept/_assets/video/ae4d108f62b5631600cc66442a43c8e6.jpg" alt="Post Black Beauty"><div class="play" aria-label="Abrir no Instagram">↗</div></div><div class="post-copy"><div class="post-tag">Campanha / feed</div><h4>Black Beauty</h4><p>Espaço para destacar campanhas, ações sazonais e imagens fortes do resultado final.</p></div></article>
-      <article class="post-card"><div class="post-thumb"><img src="https://sereiacomunicacao.my.canva.site/cachos-concept/_assets/video/eaa7986b1627eb0db801c3a264169553.jpg" alt="Post educativo sobre cabelo natural"><div class="play" aria-label="Abrir no Instagram">↗</div></div><div class="post-copy"><div class="post-tag">Educação / reels</div><h4>Cabelo natural não é sinônimo de ressecamento.</h4><p>Seção para mostrar autoridade, quebrar mitos e aproximar a marca com informação útil.</p></div></article>
-      <article class="post-card"><div class="post-thumb"><img src="https://sereiacomunicacao.my.canva.site/cachos-concept/_assets/video/c0be2c87e18ff1538be0ce3f88dac41a.jpg" alt="Post hábitos de quem é cacheada"><div class="play" aria-label="Abrir no Instagram">↗</div></div><div class="post-copy"><div class="post-tag">Dicas / reels</div><h4>Hábitos de quem é cacheada</h4><p>Conteúdo que educa, orienta e aumenta a percepção de cuidado técnico com a rotina capilar.</p></div></article>
-      <article class="post-card"><div class="post-thumb"><img src="https://sereiacomunicacao.my.canva.site/cachos-concept/_assets/video/676de2bec744f9f6bbc13e06bcf2ac11.jpg" alt="Referência visual do guia da Cachos Concept"><div class="play" aria-label="Abrir no Instagram">↗</div></div><div class="post-copy"><div class="post-tag">Produtos / resultados</div><h4>Qualidade que aparece no toque e no resultado</h4><p>Área para reforçar produtos liberados, definição, brilho, maciez e constância no resultado.</p></div></article>
+      <article class="post-card"><div class="post-thumb"><img src="https://sereiacomunicacao.my.canva.site/cachos-concept/_assets/video/ae4d108f62b5631600cc66442a43c8e6.jpg" alt="Post Black Beauty"></div><div class="post-copy"><div class="post-tag">Campanha / feed</div><h4>Black Beauty</h4><p>Espaço para destacar campanhas, ações sazonais e imagens fortes do resultado final.</p></div></article>
+      <article class="post-card"><div class="post-thumb"><img src="https://sereiacomunicacao.my.canva.site/cachos-concept/_assets/video/eaa7986b1627eb0db801c3a264169553.jpg" alt="Post educativo sobre cabelo natural"></div><div class="post-copy"><div class="post-tag">Educação / reels</div><h4>Cabelo natural não é sinônimo de ressecamento.</h4><p>Seção para mostrar autoridade, quebrar mitos e aproximar a marca com informação útil.</p></div></article>
+      <article class="post-card"><div class="post-thumb"><img src="https://sereiacomunicacao.my.canva.site/cachos-concept/_assets/video/c0be2c87e18ff1538be0ce3f88dac41a.jpg" alt="Post hábitos de quem é cacheada"></div><div class="post-copy"><div class="post-tag">Dicas / reels</div><h4>Hábitos de quem é cacheada</h4><p>Conteúdo que educa, orienta e aumenta a percepção de cuidado técnico com a rotina capilar.</p></div></article>
+      <article class="post-card"><div class="post-thumb"><img src="https://sereiacomunicacao.my.canva.site/cachos-concept/_assets/video/676de2bec744f9f6bbc13e06bcf2ac11.jpg" alt="Referência visual do guia da Cachos Concept"></div><div class="post-copy"><div class="post-tag">Produtos / resultados</div><h4>Qualidade que aparece no toque e no resultado</h4><p>Área para reforçar produtos liberados, definição, brilho, maciez e constância no resultado.</p></div></article>
     </div>
   </div>
 </section>
 
-<section class="section soft">
+<section class="section reels-section" id="videos"><div class="wrap">
+<div class="eyebrow">Reels oficiais · @cachosconcept_</div>
+<h2 class="section-title">Veja o trabalho <em>em vídeo.</em></h2>
+<p class="section-copy">Conteúdos publicados pela própria Cachos Concept: produtos, cuidados e valorização dos cabelos naturais. Toque em um vídeo para assistir aqui; se o Instagram impedir a reprodução incorporada, abra a publicação original.</p>
+<div class="reel-grid"><article class="reel-card">
+<div class="reel-stage">
+  <button type="button" class="reel-poster" data-reel="https://www.instagram.com/reel/DfA4ZySBgnx/embed/" aria-label="Assistir Reel 1: Cuidado que continua em casa" style="background-image:linear-gradient(180deg,#0000,#251a1780),url('https://sereiacomunicacao.my.canva.site/cachos-concept/_assets/video/ae4d108f62b5631600cc66442a43c8e6.jpg')">
+    <span class="reel-play" aria-hidden="true">▶</span><span class="reel-play-label">Assistir Reel oficial</span>
+  </button>
+  <iframe class="reel-frame" title="Vídeo Instagram da Cachos Concept: Cuidado que continua em casa" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+<div class="reel-text"><div class="eyebrow">Consultoria de produtos</div><h3>Cuidado que continua em casa</h3><p>Orientação sobre produtos e uma rotina de cuidados para cada necessidade</p>
+<a href="https://www.instagram.com/reel/DfA4ZySBgnx/" target="_blank" rel="noopener noreferrer">Abrir Reel original no Instagram ↗</a>
+</div>
+</article><article class="reel-card">
+<div class="reel-stage">
+  <button type="button" class="reel-poster" data-reel="https://www.instagram.com/reel/DfS6k4ihOjP/embed/" aria-label="Assistir Reel 2: Lavagem e cuidados essenciais" style="background-image:linear-gradient(180deg,#0000,#251a1780),url('https://sereiacomunicacao.my.canva.site/cachos-concept/_assets/video/eaa7986b1627eb0db801c3a264169553.jpg')">
+    <span class="reel-play" aria-hidden="true">▶</span><span class="reel-play-label">Assistir Reel oficial</span>
+  </button>
+  <iframe class="reel-frame" title="Vídeo Instagram da Cachos Concept: Lavagem e cuidados essenciais" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+<div class="reel-text"><div class="eyebrow">Rotina capilar</div><h3>Lavagem e cuidados essenciais</h3><p>Dicas do studio para uma rotina prática e saudável</p>
+<a href="https://www.instagram.com/reel/DfS6k4ihOjP/" target="_blank" rel="noopener noreferrer">Abrir Reel original no Instagram ↗</a>
+</div>
+</article><article class="reel-card">
+<div class="reel-stage">
+  <button type="button" class="reel-poster" data-reel="https://www.instagram.com/reel/Df9mvytBs89/embed/" aria-label="Assistir Reel 3: Sua coroa natural" style="background-image:linear-gradient(180deg,#0000,#251a1780),url('https://sereiacomunicacao.my.canva.site/cachos-concept/_assets/video/676de2bec744f9f6bbc13e06bcf2ac11.jpg')">
+    <span class="reel-play" aria-hidden="true">▶</span><span class="reel-play-label">Assistir Reel oficial</span>
+  </button>
+  <iframe class="reel-frame" title="Vídeo Instagram da Cachos Concept: Sua coroa natural" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+<div class="reel-text"><div class="eyebrow">Identidade natural</div><h3>Sua coroa natural</h3><p>Valorizar a beleza e a identidade dos cabelos naturais</p>
+<a href="https://www.instagram.com/reel/Df9mvytBs89/" target="_blank" rel="noopener noreferrer">Abrir Reel original no Instagram ↗</a>
+</div>
+</article></div></div></section><section class="section soft">
   <div class="wrap">
     <div class="eyebrow">O que precisa aparecer</div>
     <h2 class="section-title">Mais valor percebido em <em>produtos e resultados</em>.</h2>
@@ -229,7 +284,7 @@ input,select{width:100%;border:1px solid #d9cfc8;background:#fff;border-radius:1
 <footer class="footer">
   <div class="wrap">
     <div class="footer-grid">
-      <div><a class="brand" href="#inicio"><img src="https://scontent.cdninstagram.com/v/t51.82787-19/629092321_18530751625071904_5049475528833539859_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=109&ig_cache_key=GOEvfyUgjQjUntVBABOfJn49VxNGbmNDAQAB1501500j-ccb7-5&ccb=7-5&_nc_sid=669407&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=mWmUIoFZtD0Q7kNvwFVCQFf&_nc_oc=AdqM2KjoPAcWC-uSBPJ_-YgOb3Hoe8XxaykxRQBOwzs53453FkQAGQuB_jl9rZ0Ufjs&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_gid=BzcQ75zDLsv6v0YrK2TVCg&_nc_ss=7ba8c&_nc_ct=RQosPBUC" alt="Logo Cachos Concept"><span class="brand-block"><span class="brand-name">Cachos <em>Concept</em></span><span class="brand-sub">Prévia visual</span></span></a><p>Cuidados com excelência, calma e propósito.</p></div>
+      <div><a class="brand" href="#inicio"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMQAAADEAQAAAADo3bPGAAAFiklEQVR42u1YTY8UVRQ99TFMi4MUMpgGNTSICWFjswKN2KUuRBODmGjYgP0LjIkugOh0DRoDK0h0CZlhYWIMJLNTjEkXhmRYKD3BREwY7VIwKiEz1dOdme7pqrou3ke9V1P1D6Y2XenT777z7j3347VByH86JoqedWQdyUEGbvpO2tOdFW+hrWnM2fxXvrU7FG6q5CMujBu5yJPXXDyRg/xZMkd92DkI9QrOs9s3g1yEjnu0GwCtOWmyQskhIkrESSUSt/jLLo4Ia5Mvhvztd1fbJ6Y3fY4YdW2frrRPtUXN2nzK6XBJWzNFQ7GmM9S4VTEqkOiUZu0I9YU161lGjjlQKxf7O4wjAQAZChL2ywA6bE1iKUjJVk5qFKoqUb+yVSRSkWSDgvymrRlxpQ+SmqrGiKakDwa6UKklfbCaoVWR+3QLc+GRQiQsRPxCZDrzZV8g5GYQR0QhtjJIZPNKHnsZJBHWkuzmtrC2uCW7xuTWgsJ6sDn7Ja3JU5F0ppdFfuafsc8RGesJh7/UObIkzL88XlCREuMd1U9EdJcHOTjU30lERMM218EvTBiNsfBUO0VMAPeZG89tubOXb+HwfW4CAIZ3G8f+ZTGkksagN15522Y1zIwYIpInwvkjLB7GWZ21PZl4vek0QEQR47wSfELbvc1ERHSNsY4ZsvzYdtq6syURm8UJwOpCG8+8rnmHZ3V39iHemCxLn9mAHVQA4FLza7zS37cgBCfLJt1yI9iT21gSM27dNhHRZLv2H42HH7Fix/zGfvBtNVgxjls/SiFIa99RZdF4CyckA1MI8U6/PHfgcKmqxbQCAP35san7XyYl6R3ht6Tx7oYXHlRwXdYU6dHV0BpWJ60vtDUBAAxPB+/HOHPCEyc1+bK4F1apZFxmBjYqDAavkbEAzCSeuo8PoDcxcbEHbIvZIi9lUIpvn97oBfOn13Drr85/bs1W3+tpiecCwKe/PrdjIpgqrdH1lu+v0rkPtyr5JxhEwQ7nyme2r0d7DsDIwT3Xrw6cOs8gHwDRChFRdP788/dGWz5LBmqm3dk4esLddLIaax29y4pnPLxHRG3ehCg0gREPgOlF/SuZ3Ofd6qlhqFTgBoUiF2jfWNfXyqPMkm9GVWM+i48HAJtuzyhIneV2jYjIComIIn6eNsvgjwHg5h9ebDo39mp+swFg/1H8PbtkzWjISQAwjyE50LioMWCl12ggwKuB0hlk319qEHH3Ek1RaAKJWvx5TF2W26yFrxIR0aLoQKEJmKHSBVnkEodxq6fFU+ifcYObbRaIptXq0lcbtKsihqKbUaZe3prt+toa70sL4lnmCCNVynY7ER+aWky9s8wrrAsApDU7T9HB0FeazUCtIQ8iR/GoymCPH6ZNN1Tyhw5MV1JrTVWjXNAsCj8wbkYF2ZYWqz4YTXeQVYy7raqsOciRJgBY9UyrlWss1u303HbXDF0C6bgAjDNqsxe1qg6AFSkeK7FPvwqArudNG2UAdNnLQRwAzNXkaR51PACJ6+rqNgEMfACrFxRfB2I+OAtEUdlJT+UoPjDVcAaB3hvTYSUQ8wHmAMLeEfmbhmTtAubjM4Ygxw4t1mDg4wIfLyg9aQXAyAfYI/KK1CnNMH086rEkiiBmF/YTF4bDZTAUipey6lCTiKj1j5g6U8EZRET9Wjp1eiJmy0z7jmBg+EAST4ssHmMyMQGg7iAhLy1TvkR2BcBDEbEKD58JADUgOiiSPuSkha9XpATHxRjMc2NB3j5Cq6XcJBb5mNJMR2p+k+h4T2dULfbZeelW0Y3yq3KeMgDgpTRv+rm30A0gbz4XGfEScy73ftqsxfJYmTutR0W33cAouu22BkXWymaBtcD5qWgf62RapfU6kA772f9qrPV/I9YR/fkfZGXiILD0sX0AAAAASUVORK5CYII=" alt="Logo Cachos Concept"><span class="brand-block"><span class="brand-name">Cachos <em>Concept</em></span><span class="brand-sub">Prévia visual</span></span></a><p>Cuidados com excelência, calma e propósito.</p></div>
       <div><h4>Horário e local</h4><p>Av. Gov. José Malcher, 1084<br>Nazaré, Belém – PA<br>Terça a sábado · 9h às 18h</p></div>
       <div><h4>Links</h4><p><a href="https://www.instagram.com/cachosconcept_/" target="_blank" rel="noopener noreferrer">Instagram oficial ↗</a><br><a href="https://sereiacomunicacao.my.canva.site/cachos-concept" target="_blank" rel="noopener noreferrer">Guia anterior ↗</a><br><button type="button" id="config-open">Configurar atendimento (demo) ↗</button></p></div>
     </div>
@@ -299,5 +354,13 @@ input,select{width:100%;border:1px solid #d9cfc8;background:#fff;border-radius:1
   playMusic();
 })();
 </script>
-</body>
+<script>
+document.querySelectorAll(".reel-poster").forEach(btn=>btn.addEventListener("click",()=>{
+  const card=btn.closest(".reel-card");const frame=card?.querySelector(".reel-frame");
+  if(!frame)return;
+  const bg=document.getElementById("bgMusic");if(bg&&!bg.paused){bg.pause();const toggle=document.getElementById("musicToggle");if(toggle)toggle.textContent="♫";}
+  frame.src=btn.dataset.reel;
+  card.classList.add("playing");
+}));
+</script></body>
 </html>
