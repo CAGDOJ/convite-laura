@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#0b1921">
+<title>Gestão de encontros • Célula Esquenta</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500;600;700&display=swap');
+:root{--bg:#0b1921;--panel:#132630;--ink:#f5f1e7;--muted:#b5c3c3;--gold:#efce91;--line:#ffffff24}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 60% -10%,#29382f 0,transparent 35%),var(--bg);color:var(--ink);font:15px 'DM Sans',system-ui,sans-serif;line-height:1.6}
+main{width:min(100% - 28px,700px);margin:0 auto;padding:30px 0 65px}
+header{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0 0 38px}
+header img{width:92px;max-height:62px;object-fit:contain}
+header a{color:var(--gold);font-size:12px;text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:3px}
+h1,h2{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1;margin:0}
+h1{font-size:clamp(42px,8vw,63px);letter-spacing:-.025em}
+h2{font-size:29px;margin-bottom:12px}
+p{margin:12px 0 0;color:var(--muted)}
+.tag{color:var(--gold);text-transform:uppercase;letter-spacing:.23em;font-size:11px;font-weight:700;margin-bottom:13px}
+.panel{background:#10242dcc;border:1px solid var(--line);border-radius:22px;padding:clamp(18px,5vw,32px);margin-top:25px;box-shadow:0 12px 35px #0002}
+label,legend{display:block;color:#e9e9de;font-size:13px;font-weight:600;margin:17px 0 7px}
+input,select,textarea{display:block;width:100%;padding:13px 14px;min-height:49px;font:16px 'DM Sans',sans-serif;color:#fff;background:#0a1820;border:1px solid #80908e77;border-radius:12px;outline:none}
+input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var(--gold);box-shadow:0 0 0 2px #e7ca8133}
+select option{background:#172b31}
+textarea{resize:vertical;min-height:80px}
+small{font-size:12px;color:var(--muted);display:block;margin-top:7px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 17px}
+.field[hidden]{display:none}
+.keys{margin-top:12px;padding-top:14px;border-top:1px solid var(--line)}
+.buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
+button{min-height:52px;padding:12px 20px;border:1px solid var(--gold);border-radius:13px;font:700 13px 'DM Sans',sans-serif;cursor:pointer}
+button.primary{background:var(--gold);color:#142322;flex:1}
+button.secondary{background:transparent;color:var(--gold)}
+button:disabled{opacity:.6;cursor:wait}
+.status{margin:15px 0 0;padding:12px 15px;border-radius:10px;border:1px solid #ffffff26;background:#ffffff0d;white-space:pre-line;color:#f1d4a4;font-size:13px}
+.status[hidden]{display:none}
+.notice{font-size:12px;line-height:1.65;color:#b3c2bb}
+.preview{display:grid;gap:9px;margin:16px 0 0;border-left:2px solid var(--gold);padding:12px 18px;background:#ffffff07}
+.preview b{color:var(--ink)}.preview span{font-size:13px;color:var(--muted)}
+.foot{text-align:center;font-size:12px;margin-top:25px}
+@media(max-width:550px){.grid{grid-template-columns:1fr}.buttons{flex-direction:column}.buttons button{width:100%}}
+</style></head>
+<body>
+<main>
+<header><img src="assets/logo-siao-rede.svg" alt="Sião Rede"><a href="./" target="_blank" rel="noopener">Ver convite ↗</a></header>
+<div class="tag">Área de organização • Célula Esquenta</div>
+<h1>Personalizar o encontro</h1>
+<p>Altere dia, horário e local quando precisar. Ao publicar, o mesmo convite será atualizado para todos os visitantes.</p>
+<form class="panel" id="formulario">
+<h2>Próximo encontro</h2>
+<p class="notice">Selecione se a célula acontece toda semana ou em uma data específica.</p>
+<label for="modo">Tipo de encontro</label>
+<select id="modo"><option value="recorrente">Toda semana (dia fixo)</option><option value="data">Data específica</option></select>
+<div class="grid">
+ <div class="field" id="campoDia"><label for="dia">Dia da semana</label><select id="dia"><option value="">Selecionar dia</option><option>Segunda-feira</option><option>Terça-feira</option><option>Quarta-feira</option><option>Quinta-feira</option><option>Sexta-feira</option><option>Sábado</option><option>Domingo</option></select></div>
+ <div class="field" id="campoData" hidden><label for="data">Data do encontro</label><input id="data" type="date"></div>
+ <div class="field"><label for="hora">Horário</label><input id="hora" type="time"></div>
+</div>
+<label for="local">Nome do local</label>
+<input id="local" maxlength="150" placeholder="Ex.: Casa dos líderes, salão da igreja">
+<label for="endereco">Endereço</label>
+<input id="endereco" maxlength="350" placeholder="Rua, número, bairro e cidade">
+<label for="mapa">Link do Google Maps (opcional)</label>
+<input id="mapa" type="url" maxlength="900" placeholder="https://maps.app.goo.gl/...">
+<label for="observacoes">Informações adicionais (opcional)</label>
+<textarea id="observacoes" maxlength="500" rows="3" placeholder="Ex.: Traga sua Bíblia e convide alguém."></textarea>
+<div class="keys">
+<label for="codigo">Chave de edição</label>
+<input id="codigo" type="password" maxlength="200" autocomplete="off" required placeholder="Código reservado à liderança">
+<small>Somente quem possui a chave pode alterar a programação. Ela não fica salva no navegador.</small>
+</div>
+<div class="buttons">
+ <button class="secondary" id="rascunho" type="button">Salvar sem publicar</button>
+ <button class="primary" id="publicar" type="submit">Salvar e publicar</button>
+</div>
+<div class="status" id="status" role="status" aria-live="polite" hidden></div>
+</form>
+<section class="panel" aria-labelledby="tituloEstado">
+<h2 id="tituloEstado">O que está no convite?</h2>
+<div class="preview" id="previa"><span>Consultando os dados publicados…</span></div>
+<button class="secondary" type="button" id="atualizar" style="margin-top:18px">Atualizar prévia</button>
+</section>
+<p class="foot">Desenvolvido por TechCaju • <a style="color:var(--gold)" href="https://instagram.com/techcaju" target="_blank" rel="noopener noreferrer">@techcaju</a></p>
+</main>
+<script>
+(()=>{'use strict';
+const BASE='https://grqumxtzqpxuuoyjvprd.supabase.co';
+const KEY='sb_publishable_gvVwaO8Q_QsF-Y9mBQlh-w_Az3B-6nb';
+const el=id=>document.getElementById(id);
+const fields=['modo','dia','data','hora','local','endereco','mapa','observacoes'];
+const apiHeaders={'apikey':KEY,'Content-Type':'application/json'};
+const notice=(message,error=false)=>{const node=el('status');node.textContent=message;node.style.color=error?'#ffc7c1':'#ebd7a5';node.hidden=false;};
+function updateMode(){
+ const recurring=el('modo').value==='recorrente';
+ el('campoDia').hidden=!recurring;el('campoData').hidden=recurring;
+}
+el('modo').addEventListener('change',updateMode);
+function formatDate(date){if(!date)return '';const a=date.split('-');return a.length===3?a[2]+'/'+a[1]+'/'+a[0]:date;}
+function createLine(parent,label,value){
+ const line=document.createElement('span'),strong=document.createElement('b');
+ strong.textContent=label+' ';line.append(strong,document.createTextNode(value||'A definir'));
+ parent.append(line);
+}
+function renderState(e){
+ const preview=el('previa');preview.replaceChildren();
+ if(!e){createLine(preview,'Estado:','Não foi possível obter os dados');return;}
+ createLine(preview,'Publicação:',e.publicado?'Ativa — visível para todos':'Oculta — dados ainda não divulgados');
+ const day=e.modo==='data'?formatDate(e.data_encontro):e.dia_semana;
+ createLine(preview,'Dia:',day);
+ createLine(preview,'Horário:',e.hora?e.hora.slice(0,5):'A definir');
+ createLine(preview,'Local:',e.local_nome);
+ createLine(preview,'Endereço:',e.endereco);
+}
+async function load(){
+ const preview=el('previa');preview.textContent='Carregando…';
+ try{
+  const response=await fetch(BASE+'/rest/v1/celula_agenda?id=eq.1&select=*',{headers:{'apikey':KEY},cache:'no-store'});
+  if(!response.ok)throw Error('Não foi possível carregar as informações');
+  const rows=await response.json(),data=rows[0];
+  if(!data)throw Error('Encontro não encontrado');
+  for(const [id,key] of [['modo','modo'],['dia','dia_semana'],['data','data_encontro'],['hora','hora'],['local','local_nome'],['endereco','endereco'],['mapa','mapa_url'],['observacoes','observacoes']]){
+   el(id).value=data[key]||'';
+  }
+  if(data.hora)el('hora').value=data.hora.slice(0,5);
+  updateMode();renderState(data);
+ }catch(error){preview.textContent=error.message||'Falha ao buscar informações';notice('Falha ao consultar o convite. Confira a conexão.',true);}
+}
+async function save(publish){
+ const password=el('codigo').value.trim();
+ const selectedMode=el('modo').value;
+ const hour=el('hora').value;
+ const location=el('local').value.trim();
+ const map=el('mapa').value.trim();
+ if(!password){notice('Informe a chave de edição.',true);el('codigo').focus();return;}
+ if(publish&&(!hour||!location||(selectedMode==='recorrente'&&!el('dia').value)||(selectedMode==='data'&&!el('data').value))){
+  notice('Para publicar, preencha o dia ou a data, o horário e o nome do local.',true);return;
+ }
+ if(map&&!map.startsWith('https://')){notice('O link do mapa precisa começar com https://',true);return;}
+ const body={
+ p_codigo:password,p_modo:selectedMode,p_dia:el('dia').value||null,p_data:el('data').value||null,
+ p_hora:hour||null,p_local:location,p_endereco:el('endereco').value.trim(),p_mapa:map,
+ p_observacoes:el('observacoes').value.trim(),p_publicado:publish
+ };
+ const buttons=[el('publicar'),el('rascunho')];buttons.forEach(b=>b.disabled=true);
+ notice('Salvando as alterações…');
+ try{
+  const response=await fetch(BASE+'/rest/v1/rpc/celula_publicar_agenda',{method:'POST',headers:apiHeaders,body:JSON.stringify(body)});
+  const result=await response.json().catch(()=>({}));
+  if(!response.ok)throw Error(response.status===401||response.status===403?'Chave de edição incorreta ou sem permissão.':(result.message||'Não foi possível salvar'));
+  el('codigo').value='';
+  notice(publish?'Publicado! O próximo encontro já pode ser visto no convite.':'Rascunho salvo. As informações do encontro ficam ocultas no convite.');
+  await load();
+ }catch(error){notice(error.message||'Erro ao salvar. Tente novamente.',true);}
+ finally{buttons.forEach(b=>b.disabled=false);}
+}
+el('formulario').addEventListener('submit',e=>{e.preventDefault();save(true);});
+el('rascunho').addEventListener('click',()=>save(false));
+el('atualizar').addEventListener('click',load);
+load();
+})();
+</script>
+</body></html>
