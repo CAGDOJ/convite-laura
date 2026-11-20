@@ -68,10 +68,19 @@ nav{padding-right:max(16px,env(safe-area-inset-right))}
   .music-panel{width:min(340px,100%);padding:12px}
   .music-frame{height:200px;min-height:200px}
 }
+
+/* TechCaju no canto superior direito; confirmação fixa no canto inferior direito. */
+.top-techcaju{position:fixed;z-index:60;top:max(15px,env(safe-area-inset-top));right:max(16px,env(safe-area-inset-right));display:inline-flex;align-items:center;gap:8px;padding:5px 11px 5px 6px;min-height:48px;border:1px solid #e7d3a466;border-radius:999px;background:#0c1d26ed;box-shadow:0 7px 20px #0006;color:#f5e9d4;text-decoration:none;font:700 12px 'DM Sans',sans-serif}
+.top-techcaju img{display:block;width:36px;height:36px;object-fit:cover;border-radius:50%;background:#fff}
+.top-techcaju:hover,.top-techcaju:focus-visible{background:#21343d}
+.floating-confirm{position:fixed;z-index:65;bottom:max(18px,env(safe-area-inset-bottom));right:max(16px,env(safe-area-inset-right));display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:48px;padding:12px 19px;color:#152126;background:var(--gold-light);border:1px solid #f5e5bc;border-radius:999px;font:700 12px 'DM Sans',sans-serif;text-decoration:none;letter-spacing:.005em;box-shadow:0 8px 25px #000a}
+.floating-confirm:hover,.floating-confirm:focus-visible{background:#fff}
+footer{padding-bottom:105px}
+@media(max-width:720px){.top-techcaju{top:max(12px,env(safe-area-inset-top));right:11px;min-height:42px;gap:6px;padding:4px 10px 4px 4px;font-size:10px}.top-techcaju img{width:33px;height:33px}.floating-confirm{bottom:max(14px,env(safe-area-inset-bottom));right:12px;min-height:46px;padding:10px 15px;font-size:11px}}
 </style>
 </head>
 <body>
-<nav aria-label="Navegação principal"><a class="brand" href="#inicio"><img class="brand-logo" src="assets/logo-siao-rede.svg" alt="Sião Rede" width="94" height="52"><span>Célula<br>Esquenta</span></a><a class="top-confirm" href="https://wa.me/5591984999491?text=Ol%C3%A1!%20Gostei%20muito%20do%20convite%20da%20C%C3%A9lula%20Esquenta!%20%E2%9D%A4%EF%B8%8F%20Confirmo%20minha%20presen%C3%A7a%20e%20vou%20estar%20l%C3%A1.%20Deus%20aben%C3%A7oe!%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" aria-label="Confirmar presença na Célula Esquenta pelo WhatsApp">Confirmar presença ↗</a></nav>
+<nav aria-label="Navegação principal"><a class="brand" href="#inicio"><img class="brand-logo" src="assets/logo-siao-rede.svg" alt="Sião Rede" width="94" height="52"><span>Célula<br>Esquenta</span></a><a class="top-techcaju" href="https://instagram.com/techcaju" target="_blank" rel="noopener noreferrer" aria-label="Visitar TechCaju no Instagram" title="TechCaju • @techcaju"><img src="https://raw.githubusercontent.com/CAGDOJ/PortifolioTechcaju/main/assets/logo-cj.png" alt="Logomarca TechCaju" width="38" height="38" loading="eager"><span>TechCaju</span></a></nav><a class="floating-confirm" href="https://wa.me/5591984999491?text=Ol%C3%A1!%20Gostei%20muito%20do%20convite%20da%20C%C3%A9lula%20Esquenta!%20%E2%9D%A4%EF%B8%8F%20Confirmo%20minha%20presen%C3%A7a%20e%20vou%20estar%20l%C3%A1.%20Deus%20aben%C3%A7oe!%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" aria-label="Confirmar presença no WhatsApp">✓ Confirmar presença</a>
 <main>
 <section class="hero" id="inicio" aria-label="Boas-vindas à célula">
 <div class="orbit" aria-hidden="true"></div><span class="spark" aria-hidden="true"></span><span class="spark" aria-hidden="true"></span><span class="spark" aria-hidden="true"></span><span class="spark" aria-hidden="true"></span>
