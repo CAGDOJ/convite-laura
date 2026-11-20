@@ -77,6 +77,27 @@ nav{padding-right:max(16px,env(safe-area-inset-right))}
 .floating-confirm:hover,.floating-confirm:focus-visible{background:#fff}
 footer{padding-bottom:105px}
 @media(max-width:720px){.top-techcaju{top:max(12px,env(safe-area-inset-top));right:11px;min-height:42px;gap:6px;padding:4px 10px 4px 4px;font-size:10px}.top-techcaju img{width:33px;height:33px}.floating-confirm{bottom:max(14px,env(safe-area-inset-bottom));right:12px;min-height:46px;padding:10px 15px;font-size:11px}}
+
+/* Próximo encontro: informações editáveis no painel restrito */
+.event-section{background:linear-gradient(135deg,#f6f1e6,#e8eee7);color:#1d3031;padding:86px 0 92px}
+.event-section .eyebrow{color:#907747}
+.event-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:52px;align-items:center}
+.event-lead h2{font:500 clamp(50px,7vw,82px)/.96 'Cormorant Garamond',Georgia,serif;letter-spacing:-.03em;margin:19px 0}
+.event-lead h2 em{color:#9c7d47}
+.event-lead p:not(.eyebrow){color:#536464;font-size:14px;line-height:1.8}
+.event-card{background:#fffdf7;border:1px solid #d9d6c9;border-radius:20px;padding:clamp(22px,4vw,34px);box-shadow:0 20px 55px #24372b18;min-height:230px}
+.event-card .event-info{display:grid;gap:16px}
+.event-line{padding-bottom:13px;border-bottom:1px solid #e9e7de}
+.event-line:last-of-type{border-bottom:0}
+.event-label{display:block;color:#947a49;text-transform:uppercase;font-weight:700;font-size:10px;letter-spacing:.17em;margin:0 0 5px}
+.event-value{display:block;color:#193233;font-size:clamp(18px,3vw,24px);font-weight:600;line-height:1.4;overflow-wrap:anywhere}
+.event-address{display:block;color:#60706d;font-size:13px;margin-top:4px;white-space:pre-line}
+.event-note{color:#62706b;font-size:13px;line-height:1.7;white-space:pre-line}
+.event-map-link{display:inline-flex;align-items:center;gap:8px;min-height:43px;margin-top:10px;padding:10px 18px;border:1px solid #8d7546;border-radius:100px;color:#594625;text-decoration:none;font-size:12px;font-weight:700}
+.event-map-link:hover{background:#f7efdf}
+.event-empty{color:#5b6b67;font-size:15px;line-height:1.75;margin:0}
+.event-section [hidden]{display:none!important}
+@media(max-width:740px){.event-section{padding:69px 0}.event-grid{grid-template-columns:1fr;gap:20px}.event-lead h2{font-size:56px;margin:14px 0 8px}}
 </style>
 </head>
 <body>
@@ -89,6 +110,21 @@ footer{padding-bottom:105px}
 </section>
 <section class="section intro" id="historia"><div class="container intro-grid"><div class="reveal"><p class="eyebrow">Uma história construída juntos</p><h2>Não é só um<br><em>encontro.</em><br>É pertencimento.</h2><p>Algumas pessoas chegam como visitas e, com o tempo, tornam-se família. Entre abraços, orações, risadas e conversas sinceras, aprendemos que caminhar com Deus também é caminhar uns com os outros.</p><p>Aqui, cada história importa. E os melhores capítulos ainda estão por vir.</p></div><div class="photo-frame reveal"><img src="assets/momento-06.webp" alt="Pessoas reunidas em um encontro da célula, sorrindo para uma fotografia" loading="lazy"></div></div></section>
 <section class="scripture"><div class="container reveal"><div class="cross-line" aria-hidden="true">✦</div><p class="eyebrow">A razão de estarmos juntos</p><p class="quote">“Onde dois ou três estão reunidos em meu nome, ali estou no meio deles.”</p><small>Mateus 18:20</small></div></section>
+<section id="proximo-encontro" class="event-section" aria-labelledby="encontroTitulo">
+<div class="container event-grid">
+ <div class="event-lead"><p class="eyebrow">Venha fazer parte</p><h2 id="encontroTitulo">Nosso próximo<br><em>encontro.</em></h2><p>Um lugar para compartilhar a fé, fazer amigos e viver algo novo. Esperamos por você!</p></div>
+ <div class="event-card">
+  <p id="encontroCarregando" class="event-empty">Consultando as informações do próximo encontro…</p>
+  <p id="encontroPendente" class="event-empty" hidden>Dia, horário e endereço serão anunciados em breve. Acompanhe as novidades e convide alguém para participar!</p>
+  <div id="encontroDados" class="event-info" hidden>
+   <div class="event-line"><span class="event-label">Quando</span><strong class="event-value" id="encontroDia"></strong><span class="event-address" id="encontroHora"></span></div>
+   <div class="event-line"><span class="event-label">Onde</span><strong class="event-value" id="encontroLocal"></strong><span class="event-address" id="encontroEndereco"></span></div>
+   <p class="event-note" id="encontroObservacoes" hidden></p>
+   <a id="encontroMapa" class="event-map-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Ver localização no mapa ↗</a>
+  </div>
+ </div>
+</div>
+</section>
 <section class="gallery" id="momentos"><div class="gallery-head container reveal"><p class="eyebrow">Memórias que nos trouxeram até aqui</p><h2>O amor se revela<br><em>nos detalhes.</em></h2><p>Uma coleção de momentos reais. Sorrisos, abraços e pessoas que fazem desta caminhada algo tão especial.</p></div><div class="gallery-stage"><div class="film" id="film" aria-label="Galeria com dez fotografias dos encontros">
 <figure class="slide"><img src="assets/momento-01.webp" alt="Fotografia do primeiro encontro registrado na galeria" loading="lazy"><figcaption class="photo-number">MOMENTO 01 / 10</figcaption></figure>
 <figure class="slide"><img src="assets/momento-02.webp" alt="Grupo reunido para fotografia em ambiente decorado com luzes" loading="lazy"><figcaption class="photo-number">MOMENTO 02 / 10</figcaption></figure>
@@ -121,6 +157,58 @@ footer{padding-bottom:105px}
 <script>
 (()=>{'use strict';
 const byId=id=>document.getElementById(id);
+
+/* Agenda da célula: carregada do banco e editável apenas no painel de gestão. */
+const AGENDA_URL='https://grqumxtzqpxuuoyjvprd.supabase.co/rest/v1/celula_agenda?id=eq.1&select=modo,dia_semana,data_encontro,hora,local_nome,endereco,mapa_url,observacoes,publicado,atualizado_em';
+const AGENDA_KEY='sb_publishable_gvVwaO8Q_QsF-Y9mBQlh-w_Az3B-6nb';
+const waBase='Olá! Gostei muito do convite da Célula Esquenta! ❤️ Confirmo minha presença e vou estar lá. Deus abençoe! 🙏';
+const dayFromDate=date=>{if(!date)return 'Data a definir';const p=date.split('-');return p.length===3?p[2]+'/'+p[1]+'/'+p[0]:date};
+function updateConfirmation(data){
+ let msg=waBase;
+ if(data&&data.publicado){
+  const quando=(data.modo==='data'?dayFromDate(data.data_encontro):data.dia_semana)||'';
+  const hora=data.hora?data.hora.slice(0,5):'';
+  const local=data.local_nome||'';
+  if(quando||hora||local)msg+='\n\nEncontro: '+[quando,hora?hora+'h':''].filter(Boolean).join(', ')+(local?'\nLocal: '+local:'');
+ }
+ const url='https://wa.me/5591984999491?text='+encodeURIComponent(msg);
+ document.querySelectorAll('a.whatsapp-confirm,a.floating-confirm').forEach(el=>el.href=url);
+}
+async function carregarAgenda(){
+ try{
+  const response=await fetch(AGENDA_URL,{headers:{apikey:AGENDA_KEY},cache:'no-store'});
+  if(!response.ok)throw Error('Agenda indisponível');
+  const result=await response.json(),data=result[0]||null;
+  byId('encontroCarregando').hidden=true;
+  if(!data||!data.publicado){
+   byId('encontroDados').hidden=true;
+   byId('encontroPendente').hidden=false;
+   updateConfirmation(null);return;
+  }
+  byId('encontroPendente').hidden=true;
+  byId('encontroDados').hidden=false;
+  byId('encontroDia').textContent=data.modo==='data'?dayFromDate(data.data_encontro):(data.dia_semana||'A confirmar');
+  byId('encontroHora').textContent=data.hora?data.hora.slice(0,5)+'h':'Horário a confirmar';
+  byId('encontroLocal').textContent=data.local_nome||'Local a confirmar';
+  byId('encontroEndereco').textContent=data.endereco||'';
+  byId('encontroEndereco').hidden=!data.endereco;
+  const note=byId('encontroObservacoes');note.textContent=data.observacoes||'';note.hidden=!data.observacoes;
+  const map=byId('encontroMapa');let safeUrl='';
+  try{const u=new URL(data.mapa_url);if(u.protocol==='https:')safeUrl=u.href;}catch(_){}
+  map.hidden=!safeUrl;
+  if(safeUrl)map.href=safeUrl;else map.removeAttribute('href');
+  updateConfirmation(data);
+ }catch(_){
+  byId('encontroCarregando').hidden=true;
+  byId('encontroDados').hidden=true;
+  byId('encontroPendente').textContent='Os detalhes do próximo encontro não estão disponíveis no momento. Tente atualizar a página.';
+  byId('encontroPendente').hidden=false;
+ }
+}
+carregarAgenda();
+setInterval(carregarAgenda,90000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)carregarAgenda()});
+
 const musicPanel=byId('musicPanel'),musicMount=byId('musicMount'),musicToggle=byId('musicToggle');
 let musicPlayer=null,musicReady=false,musicPlaying=false,musicRequested=true,musicPausedByUser=false,musicManualAttempts=0;
 const trackId='cwDzMKP26W4';
