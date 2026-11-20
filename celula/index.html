@@ -47,10 +47,31 @@ footer{padding:36px 24px 45px;border-top:1px solid var(--line);background:#08141
 @media(max-width:720px){.brand-logo{width:68px;height:39px}.brand{gap:7px}.hero-network-logo{max-height:112px}.hero h1{font-size:clamp(62px,16vw,108px)}.music-toggle{min-height:44px}.music-panel{padding:9px}.music-frame{height:130px}}
 .confirmation-actions{display:flex;flex-direction:column;align-items:center;gap:15px}.whatsapp-confirm{display:inline-flex;justify-content:center;align-items:center;gap:5px;min-height:55px;max-width:calc(100vw - 32px);padding:12px 25px;color:#14251e;text-decoration:none;text-align:center;border:1px solid var(--gold-light);border-radius:100px;background:var(--gold-light);font:700 12px 'DM Sans',sans-serif;letter-spacing:.035em;transition:transform .25s,background .25s;box-shadow:0 10px 30px #0004}.whatsapp-confirm:hover{transform:translateY(-3px);background:white}.confirmation-hint{font-size:12px;line-height:1.65;color:var(--sub);max-width:330px}.confirmation-actions .share-btn{margin-top:12px}@media(max-width:720px){.whatsapp-confirm{font-size:11px;min-height:54px;padding:11px 16px}}
 .music-compact-note{font-size:10px;color:var(--gold-light);background:#0d1b22ee;border-radius:9px;padding:6px 9px;max-width:190px;text-align:center}.music-compact-note[hidden]{display:none}
+
+/* CTA fixo no canto superior direito e música no fluxo da página, sem sobreposição */
+nav{padding-right:max(16px,env(safe-area-inset-right))}
+.top-confirm{position:fixed;right:max(16px,env(safe-area-inset-right));top:max(17px,env(safe-area-inset-top));z-index:60;display:inline-flex;align-items:center;justify-content:center;min-height:43px;padding:10px 16px;background:var(--gold-light);color:#152126;border:1px solid #fff8;border-radius:100px;font:700 11px 'DM Sans',sans-serif;text-decoration:none;text-align:center;letter-spacing:.01em;box-shadow:0 6px 20px #0007;white-space:nowrap}
+.top-confirm:hover{background:#fff;transform:translateY(-1px)}
+.music-widget{position:relative;inset:auto;z-index:auto;display:block;flex-direction:initial;align-items:initial;gap:0;padding:58px 0 68px;text-align:center;background:#0c1b21;border-top:1px solid var(--line)}
+.music-container{display:flex;flex-direction:column;align-items:center;gap:0}
+.music-title{font:500 clamp(42px,7vw,60px) 'Cormorant Garamond',Georgia,serif;margin:10px 0 6px;color:var(--gold-light)}
+.music-description{font-size:13px;color:var(--sub);line-height:1.7;margin:0 0 18px}
+.music-panel,.music-panel[hidden]{display:block;position:relative;width:min(370px,100%);border:1px solid #f3dba261;padding:14px;margin:0 auto;background:#0d1b22;box-shadow:none;border-radius:15px}
+.music-frame{display:block;width:100%;height:205px;min-height:205px;border:0;border-radius:10px;background:#000}
+.music-panel .music-foot{font-size:11px;margin:10px 0 0}
+.music-widget .music-toggle{position:relative;margin-top:16px;min-height:45px;font-size:12px;padding:0 22px}
+@media(max-width:720px){
+  .top-confirm{top:max(17px,env(safe-area-inset-top));right:12px;min-height:40px;padding:9px 12px;font-size:10px}
+  .brand-logo{width:62px;height:36px}
+  .brand{gap:6px;font-size:9px}
+  .music-widget{padding:48px 0 60px}
+  .music-panel{width:min(340px,100%);padding:12px}
+  .music-frame{height:200px;min-height:200px}
+}
 </style>
 </head>
 <body>
-<nav aria-label="Navegação principal"><a class="brand" href="#inicio"><img class="brand-logo" src="assets/logo-siao-rede.svg" alt="Sião Rede" width="94" height="52"><span>Célula<br>Esquenta</span></a><a class="nav-link" href="#momentos">Nossos momentos ↗</a></nav>
+<nav aria-label="Navegação principal"><a class="brand" href="#inicio"><img class="brand-logo" src="assets/logo-siao-rede.svg" alt="Sião Rede" width="94" height="52"><span>Célula<br>Esquenta</span></a><a class="top-confirm" href="https://wa.me/5591984999491?text=Ol%C3%A1!%20Gostei%20muito%20do%20convite%20da%20C%C3%A9lula%20Esquenta!%20%E2%9D%A4%EF%B8%8F%20Confirmo%20minha%20presen%C3%A7a%20e%20vou%20estar%20l%C3%A1.%20Deus%20aben%C3%A7oe!%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" aria-label="Confirmar presença na Célula Esquenta pelo WhatsApp">Confirmar presença ↗</a></nav>
 <main>
 <section class="hero" id="inicio" aria-label="Boas-vindas à célula">
 <div class="orbit" aria-hidden="true"></div><span class="spark" aria-hidden="true"></span><span class="spark" aria-hidden="true"></span><span class="spark" aria-hidden="true"></span><span class="spark" aria-hidden="true"></span>
@@ -74,14 +95,19 @@ footer{padding:36px 24px 45px;border-top:1px solid var(--line);background:#08141
 <section class="values"><div class="container values-grid"><article class="value reveal"><span class="number">01 ✦</span><h3>Fé que fortalece</h3><p>Um espaço para ouvir a Palavra, compartilhar desafios e crescer juntos na presença de Deus.</p></article><article class="value reveal"><span class="number">02 ✦</span><h3>Amizades que acolhem</h3><p>Aqui ninguém precisa fingir perfeição. A gente aprende a cuidar uns dos outros.</p></article><article class="value reveal"><span class="number">03 ✦</span><h3>Amor que transforma</h3><p>Mais do que momentos registrados, queremos construir memórias que tenham significado.</p></article></div></section>
 <section class="invite" id="convite"><div class="container reveal"><span class="eyebrow">Você também faz parte dessa história</span><h2>Talvez o próximo capítulo<br>comece com <em style="color:var(--gold);font-weight:400">você.</em></h2><p>Se esta mensagem chegou até você, receba nosso carinho. A nossa caminhada é feita de portas abertas, fé e pessoas de verdade.</p><div class="confirmation-actions"><a class="whatsapp-confirm" href="https://wa.me/5591984999491?text=Ol%C3%A1!%20Gostei%20muito%20do%20convite%20da%20C%C3%A9lula%20Esquenta!%20%E2%9D%A4%EF%B8%8F%20Confirmo%20minha%20presen%C3%A7a%20e%20vou%20estar%20l%C3%A1.%20Deus%20aben%C3%A7oe!%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" aria-label="Confirmar presença no WhatsApp com mensagem pronta">💬 &nbsp; Confirmar presença pelo WhatsApp ↗</a><span class="confirmation-hint">Uma mensagem pronta será aberta. É só tocar em enviar para confirmar.</span><button type="button" class="share-btn" id="compartilhar">Compartilhar esta história ↗</button></div><p id="status" class="copy-status" role="status" aria-live="polite"></p></div></section>
 </main>
-<div class="music-widget" aria-label="Música do convite">
-  <section id="musicPanel" class="music-panel" hidden aria-label="Reprodutor oficial da música Primavera">
-    <div class="music-head"><div><strong>♪ Primavera (Ao Vivo)</strong><small>IIR Music • Trilha da nossa história</small></div><button type="button" class="music-close" id="musicClose" aria-label="Parar a música e fechar">×</button></div>
-    <div id="musicMount"></div>
-    <p class="music-foot">A música tenta tocar ao abrir. Se o navegador bloquear, toque no vídeo para liberar o áudio. <a href="https://www.youtube.com/watch?v=cwDzMKP26W4" target="_blank" rel="noopener noreferrer">Abrir no YouTube</a>.</p>
-  </section>
-  <span id="musicCompactNote" class="music-compact-note" hidden>Se o navegador bloquear, toque no player oficial.</span><button id="musicToggle" class="music-toggle" type="button" aria-controls="musicPanel" aria-expanded="false" aria-pressed="false">♫ Ouvir Primavera</button>
-</div>
+<section class="music-widget" id="musica" aria-label="Trilha sonora do convite">
+  <div class="container music-container">
+    <p class="eyebrow">Nossa trilha sonora</p>
+    <h2 class="music-title">Primavera</h2>
+    <p class="music-description">IIR Music • Uma canção para acompanhar a nossa história.</p>
+    <div id="musicPanel" class="music-panel" aria-label="Reprodutor oficial da música Primavera">
+      <div class="music-head"><div><strong>♪ Primavera (Ao Vivo)</strong><small>IIR Music • Vídeo oficial</small></div></div>
+      <div id="musicMount"></div>
+      <p class="music-foot">A música tenta iniciar com o convite. No Safari ou Chrome, pode ser necessário tocar em reproduzir. <a href="https://www.youtube.com/watch?v=cwDzMKP26W4" target="_blank" rel="noopener noreferrer">Abrir no YouTube</a>.</p>
+    </div>
+    <button id="musicToggle" class="music-toggle" type="button" aria-controls="musicPanel" aria-pressed="false">♫ Ouvir Primavera</button>
+  </div>
+</section>
 <footer><div class="footer-cross" aria-hidden="true">✝</div><p>“Acima de tudo, porém, revistam-se do amor.”<br>Colossenses 3:14</p><p class="credit">Experiência digital por <a href="https://instagram.com/techcaju" target="_blank" rel="noopener noreferrer">TechCaju • Carlos Júnior</a></p></footer>
 <script>
 (()=>{'use strict';
@@ -101,12 +127,10 @@ playerFrame.setAttribute('loading','eager');
 musicMount.appendChild(playerFrame);
 function updateMusicButton(){
   musicToggle.textContent=musicPlaying?'♫ Pausar Primavera':musicPausedByUser?'♫ Retomar Primavera':'♫ Ouvir Primavera';
-  musicToggle.setAttribute('aria-expanded',String(!musicPanel.hidden));
   musicToggle.setAttribute('aria-pressed',String(musicPlaying));
 }
 function requestMusic(showPanel=false){
   musicPausedByUser=false;musicRequested=true;
-  if(showPanel)musicPanel.hidden=false;
   if(musicReady&&musicPlayer){
     try{
       musicPlayer.unMute();
@@ -121,17 +145,14 @@ function requestMusic(showPanel=false){
 function pauseMusic(hidePanel=false){
   musicRequested=false;musicPausedByUser=true;musicPlaying=false;
   if(musicReady&&musicPlayer){try{musicPlayer.pauseVideo();}catch(_){}}
-  if(hidePanel)musicPanel.hidden=true;
   updateMusicButton();
 }
 musicToggle.addEventListener('click',()=>{
   if(musicPlaying){pauseMusic();return;}
-  // Começa diretamente, sem abrir o vídeo sobre o convite.
-  // Se o navegador impedir o som, o reprodutor oficial permanece acessível.
+  // A reprodução fica em uma seção do fim da página; nada encobre o convite.
   musicManualAttempts++;
-  requestMusic(musicManualAttempts>=2 && !musicPlaying);
+  requestMusic();
 });
-byId('musicClose').addEventListener('click',()=>pauseMusic(true));
 function createMusicPlayer(){
   if(musicPlayer||!window.YT||!YT.Player)return;
   musicPlayer=new YT.Player(playerFrame,{
@@ -139,7 +160,7 @@ function createMusicPlayer(){
       onReady(e){musicPlayer=e.target;musicReady=true;requestMusic();},
       onStateChange(e){
         if(e.data===YT.PlayerState.PLAYING){
-          musicPlaying=true;musicPausedByUser=false;musicManualAttempts=0;musicPanel.hidden=true;updateMusicButton();
+          musicPlaying=true;musicPausedByUser=false;musicManualAttempts=0;updateMusicButton();
         }else if(e.data===YT.PlayerState.PAUSED){
           musicPlaying=false;updateMusicButton();
         }else if(e.data===YT.PlayerState.ENDED&&musicRequested){
