@@ -60,9 +60,30 @@ footer{border-top:1px solid var(--line);background:#100c0b}.footer-inner{display
 
 /* Música automática: sem botão visível ou etapa extra */
 #musicToggle{display:none!important}
+
+/* Abertura única integrada à música, no estilo do convite da Laura */
+.carlao-entry{position:fixed;z-index:9999;inset:0;display:flex;align-items:center;justify-content:center;padding:25px;background:radial-gradient(ellipse at 50% 37%,#573327 0%,#241815 54%,#0b0908 100%);color:#fff3e5;text-align:center}
+.carlao-entry[hidden]{display:none!important}
+.carlao-entry-card{width:min(100%,410px);padding:30px 25px 33px;border:1px solid #a98258;border-radius:22px;background:linear-gradient(145deg,#37231e,#231715);box-shadow:0 15px 55px #0009}
+.carlao-entry-kicker{color:#ddb781;letter-spacing:.24em;font-size:11px;text-transform:uppercase;margin:0 0 13px}
+.carlao-entry h2{font-family:Georgia,serif;color:#ffe0aa;font-weight:500;font-size:clamp(34px,9vw,48px);margin:0 0 17px;line-height:1.08}
+.carlao-entry p{font-size:14px;line-height:1.6;color:#e9d2ba}
+.carlao-entry button{width:100%;margin-top:13px;border-radius:13px;min-height:56px;padding:15px 18px;border:1px solid #d4a86d;background:#9e482b;color:white;font:600 16px inherit;cursor:pointer;box-shadow:0 9px 22px #0006}
+.carlao-entry button:focus-visible{outline:3px solid #ffe1a1;outline-offset:3px}
 </style>
 </head>
 <body>
+
+<div id="carlao-entrada" class="carlao-entry" role="dialog" aria-modal="true" aria-labelledby="carlao-entrada-titulo">
+ <div class="carlao-entry-card">
+  <div class="carlao-entry-kicker">Carlão · Tantra &amp; Spa</div>
+  <h2 id="carlao-entrada-titulo">Seu momento<br>de relaxar.</h2>
+  <p>Uma experiência feita para a resenha, com um clima de spa do começo ao fim.</p>
+  <button id="carlao-entrar" type="button">Entrar no Spa ✦</button>
+ </div>
+</div>
+<noscript><style>#carlao-entrada{display:none!important}</style></noscript>
+
 <div class="shell" id="inicio">
 <div class="note">Experiência fictícia • criada só pela resenha 😄</div>
 <header><nav class="nav wrap" aria-label="Navegação principal">
@@ -176,4 +197,25 @@ if(cmd==='musica'){const m=document.getElementById('musicaAmbiente');if(m?.pause
 form.addEventListener('submit',e=>{e.preventDefault();run(inp.value);inp.value='';inp.focus()});
 document.querySelectorAll('[data-zen-command]').forEach(b=>b.addEventListener('click',()=>run(b.dataset.zenCommand)));
 })();
-</script></body></html>
+</script>
+<script>
+(function(){
+  const cover=document.getElementById('carlao-entrada');
+  const enter=document.getElementById('carlao-entrar');
+  const audio=document.getElementById('musicaAmbiente');
+  if(!cover||!enter||!audio)return;
+  // Se autoplay com som já foi liberado pelo navegador, não mostramos outra etapa.
+  audio.addEventListener('playing',function(){ cover.hidden=true; });
+  // Mesma estratégia do convite da Laura: o toque de entrar inicia o áudio.
+  enter.addEventListener('click',function(){
+    cover.hidden=true;
+    try{
+      audio.muted=false;
+      audio.volume=1;
+      const p=audio.play();
+      if(p && typeof p.catch==='function') p.catch(function(err){ console.warn('O navegador bloqueou o início da trilha:',err); });
+    }catch(err){ console.warn('Falha no áudio:',err); }
+  });
+})();
+</script>
+</body></html>
