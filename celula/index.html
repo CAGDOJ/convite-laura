@@ -76,20 +76,94 @@ footer{padding:36px 24px 45px;border-top:1px solid var(--line);background:#08141
   <section id="musicPanel" class="music-panel" hidden aria-label="Reprodutor Primavera de IIR Music">
     <div class="music-head"><div><strong>♪ Primavera (Ao Vivo)</strong><small>IIR Music • Trilha da nossa história</small></div><button type="button" class="music-close" id="musicClose" aria-label="Parar a música e fechar">×</button></div>
     <div id="musicMount"></div>
-    <p class="music-foot">Reprodução pelo canal oficial. Caso o celular bloqueie o início automático, toque no vídeo. <a href="https://www.youtube.com/watch?v=cwDzMKP26W4" target="_blank" rel="noopener noreferrer">Abrir no YouTube</a>.</p>
+    <p class="music-foot">A música tenta iniciar ao abrir o convite. Caso o celular bloqueie o áudio automático, toque em “Ouvir Primavera” ou no vídeo. <a href="https://www.youtube.com/watch?v=cwDzMKP26W4" target="_blank" rel="noopener noreferrer">Abrir no YouTube</a>.</p>
   </section>
-  <button id="musicToggle" class="music-toggle" type="button" aria-controls="musicPanel" aria-expanded="false">♫ Ouvir Primavera</button>
+  <button id="musicToggle" class="music-toggle" type="button" aria-controls="musicPanel" aria-expanded="false" aria-pressed="false">♫ Ouvir Primavera</button>
 </div>
 <footer><div class="footer-cross" aria-hidden="true">✝</div><p>“Acima de tudo, porém, revistam-se do amor.”<br>Colossenses 3:14</p><p class="credit">Experiência digital por <a href="https://instagram.com/techcaju" target="_blank" rel="noopener noreferrer">TechCaju • Carlos Júnior</a></p></footer>
 <script>
 (()=>{'use strict';
 const byId=id=>document.getElementById(id);
 const musicPanel=byId('musicPanel'),musicMount=byId('musicMount'),musicToggle=byId('musicToggle');
-function stopMusic(){musicMount.replaceChildren();musicPanel.hidden=true;musicToggle.textContent='♫ Ouvir Primavera';musicToggle.setAttribute('aria-expanded','false')}
-function startMusic(){if(!musicPanel.hidden)return;musicPanel.hidden=false;musicToggle.textContent='♫ Pausar música';musicToggle.setAttribute('aria-expanded','true');const frame=document.createElement('iframe');frame.className='music-frame';frame.title='Primavera (Ao Vivo) — IIR Music, vídeo oficial';frame.src='https://www.youtube-nocookie.com/embed/cwDzMKP26W4?autoplay=1&playsinline=1&rel=0';frame.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';frame.allowFullscreen=true;frame.referrerPolicy='strict-origin-when-cross-origin';musicMount.append(frame)}
-musicToggle.addEventListener('click',()=>musicPanel.hidden?startMusic():stopMusic());
-byId('musicClose').addEventListener('click',stopMusic);
-byId('abrir').addEventListener('click',()=>{startMusic();byId('historia').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})});
+let musicPlayer=null,musicReady=false,musicPlaying=false,musicRequested=true,musicPausedByUser=false;
+const trackId='cwDzMKP26W4';
+const playerFrame=document.createElement('iframe');
+playerFrame.id='celula-youtube-player';
+playerFrame.className='music-frame';
+playerFrame.title='Primavera (Ao Vivo) — IIR Music, reprodução oficial';
+playerFrame.src='https://www.youtube-nocookie.com/embed/'+trackId+'?enablejsapi=1&autoplay=1&playsinline=1&rel=0&origin='+encodeURIComponent(location.origin);
+playerFrame.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';
+playerFrame.allowFullscreen=true;
+playerFrame.referrerPolicy='strict-origin-when-cross-origin';
+playerFrame.setAttribute('loading','eager');
+musicMount.appendChild(playerFrame);
+function updateMusicButton(){
+  musicToggle.textContent=musicPlaying?'♫ Pausar Primavera':musicPausedByUser?'♫ Retomar Primavera':'♫ Ouvir Primavera';
+  musicToggle.setAttribute('aria-expanded',String(!musicPanel.hidden));
+  musicToggle.setAttribute('aria-pressed',String(musicPlaying));
+}
+function requestMusic(showPanel=false){
+  if(musicPausedByUser&&!showPanel)return;
+  musicPausedByUser=false;musicRequested=true;
+  if(showPanel)musicPanel.hidden=false;
+  if(musicReady&&musicPlayer){
+    try{
+      musicPlayer.unMute();
+      musicPlayer.setVolume(85);
+      musicPlayer.playVideo();
+    }catch(_){musicToggle.textContent='♫ Toque para ouvir';}
+  }
+  updateMusicButton();
+}
+function pauseMusic(hidePanel=false){
+  musicRequested=false;musicPausedByUser=true;musicPlaying=false;
+  if(musicReady&&musicPlayer){try{musicPlayer.pauseVideo();}catch(_){}}
+  if(hidePanel)musicPanel.hidden=true;
+  updateMusicButton();
+}
+musicToggle.addEventListener('click',()=>musicPlaying?pauseMusic():requestMusic(true));
+byId('musicClose').addEventListener('click',()=>pauseMusic(true));
+function createMusicPlayer(){
+  if(musicPlayer||!window.YT||!YT.Player)return;
+  musicPlayer=new YT.Player(playerFrame,{
+    events:{
+      onReady(e){musicPlayer=e.target;musicReady=true;requestMusic();},
+      onStateChange(e){
+        if(e.data===YT.PlayerState.PLAYING){
+          musicPlaying=true;musicPausedByUser=false;updateMusicButton();
+        }else if(e.data===YT.PlayerState.PAUSED){
+          musicPlaying=false;updateMusicButton();
+        }else if(e.data===YT.PlayerState.ENDED&&musicRequested){
+          musicPlaying=false;
+          try{musicPlayer.seekTo(0,true);musicPlayer.playVideo();}catch(_){}
+        }
+      },
+      onAutoplayBlocked(){musicPlaying=false;musicToggle.textContent='♫ Toque para ouvir';},
+      onError(){musicPlaying=false;musicToggle.textContent='♫ Abrir música';}
+    }
+  });
+}
+window.onYouTubeIframeAPIReady=createMusicPlayer;
+if(window.YT&&YT.Player)createMusicPlayer();
+else{
+  const sdk=document.createElement('script');
+  sdk.src='https://www.youtube.com/iframe_api';sdk.async=true;
+  sdk.onerror=()=>{musicToggle.textContent='♫ Abrir música';};
+  document.head.appendChild(sdk);
+}
+// Faz a tentativa já ao carregar. Se o navegador impedir som automático,
+// tenta no primeiro toque, exatamente como a abertura do convite da Laura.
+function firstInteraction(event){
+  if(musicPlaying||musicPausedByUser)return;
+  if(event.target instanceof Element&&event.target.closest('#musicToggle,#musicClose,#musicPanel'))return;
+  requestMusic(true);
+}
+document.addEventListener('pointerdown',firstInteraction,{capture:true,passive:true});
+document.addEventListener('keydown',event=>{if((event.key==='Enter'||event.key===' ')&&!musicPlaying&&!musicPausedByUser)requestMusic(true);},{capture:true});
+byId('abrir').addEventListener('click',()=>{
+  if(!musicPlaying&&!musicPausedByUser)requestMusic(true);
+  byId('historia').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+});
 const film=byId('film'),slides=Array.from(film.querySelectorAll('.slide')),counter=byId('counter');
 let active=0;const update=()=>{const center=film.scrollLeft+film.clientWidth/2;let nearest=0,dist=Infinity;slides.forEach((slide,i)=>{const x=slide.offsetLeft+slide.offsetWidth/2,d=Math.abs(x-center);if(d<dist){dist=d;nearest=i}});active=nearest;counter.textContent=String(active+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0')};
 const go=dir=>{update();const idx=(active+dir+slides.length)%slides.length;const s=slides[idx];film.scrollTo({left:s.offsetLeft-(film.clientWidth-s.clientWidth)/2,behavior:'smooth'});counter.textContent=String(idx+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0')};
