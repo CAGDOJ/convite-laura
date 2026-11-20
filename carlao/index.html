@@ -70,6 +70,83 @@ footer{border-top:1px solid var(--line);background:#100c0b}.footer-inner{display
 .carlao-entry p{font-size:14px;line-height:1.6;color:#e9d2ba}
 .carlao-entry button{width:100%;margin-top:13px;border-radius:13px;min-height:56px;padding:15px 18px;border:1px solid #d4a86d;background:#9e482b;color:white;font:600 16px inherit;cursor:pointer;box-shadow:0 9px 22px #0006}
 .carlao-entry button:focus-visible{outline:3px solid #ffe1a1;outline-offset:3px}
+
+/* Refinamento responsivo 20/11/2026: foto, tipografia, espaçamento e corte de texto */
+html,body{width:100%;max-width:100%;overflow-x:clip}
+.hero-side span{overflow-wrap:anywhere}
+@media (max-width:720px){
+  .note{font-size:9px;letter-spacing:1.25px;line-height:1.4;padding:8px 12px}
+  .wrap{width:calc(100% - 36px);max-width:500px}
+  .nav{height:66px;gap:12px}
+  .navlinks{top:66px}
+  .menu-toggle{width:42px;height:42px;flex:none}
+  .logo{min-width:0;gap:9px}
+  .logo .lotus{width:30px;height:31px;flex:none}
+  .logo-text strong{font-size:25px}
+  .logo-text small{font-size:8px;letter-spacing:1.7px;white-space:nowrap}
+  .hero{min-height:0;display:flex;flex-direction:column;gap:0}
+  .hero-visual{height:clamp(295px,85vw,360px);min-height:0;width:100%;border-radius:0 0 36px 0}
+  .hero-visual img{object-position:center 27%}
+  .hero-visual:after{background:linear-gradient(0deg,rgba(23,16,15,.87),rgba(23,16,15,.13) 41%,transparent 66%)}
+  .hero-side{left:16px;right:16px;bottom:20px;width:auto}
+  .hero-side b{font-size:clamp(14px,4vw,18px);line-height:1.3}
+  .hero-side span{font-size:9px;letter-spacing:1.15px;line-height:1.5;margin-top:5px}
+  .hero-info{padding:30px 0 44px;min-width:0}
+  .eyebrow{font-size:9px;letter-spacing:1.7px;gap:9px;line-height:1.6}
+  .eyebrow:before{width:20px;flex:none}
+  .hero h1{font-size:clamp(51px,15.5vw,68px);letter-spacing:-2.2px;line-height:1;margin:15px 0 5px}
+  .hero h2{font-size:clamp(27px,7.3vw,34px);line-height:1.1;margin:4px 0 17px}
+  .hero-desc{font-size:14px;line-height:1.7;margin-bottom:20px;max-width:100%}
+  .hero-tags{gap:8px;margin-bottom:23px}
+  .hero-tags span{font-size:10px;padding:8px 11px}
+  .actions{gap:10px}
+  .actions .btn{padding:14px 18px;font-size:12px;min-height:46px}
+  .small-note{margin-top:16px;font-size:10px;line-height:1.6}
+  .stripe-inner{display:grid;grid-template-columns:1fr 1fr;gap:14px 10px;padding:20px 8px}
+  .stripe-inner span{justify-content:flex-start;font-size:10px;letter-spacing:0;line-height:1.45}
+  .services{padding:60px 0 65px}
+  .section-title{font-size:clamp(33px,9vw,42px);line-height:1.12;margin:14px 0}
+  .section-label{letter-spacing:2px;font-size:9px;line-height:1.5}
+  .section-intro{font-size:13px}
+  .card-grid{margin-top:28px;gap:17px}
+  .service-card{border-radius:19px}
+  .service-cover{height:165px}
+  .service-content{padding:22px 21px 24px}
+  .service-content h3{font-size:25px}
+  .service-content p{font-size:13px;line-height:1.65}
+  .about{padding:62px 0 65px;gap:25px}
+  .about-photo{width:200px}
+  .about h2{font-size:38px;line-height:1.13;margin:13px 0}
+  .about p{font-size:14px;line-height:1.75}
+  .quote{font-size:20px!important;padding-left:15px}
+  .promise{gap:8px;justify-content:center}
+  .promise span{font-size:10px;padding:9px 11px}
+  .cta{padding:70px 0 76px}
+  .cta h2{font-size:clamp(34px,9vw,45px)}
+  .cta p{font-size:13px}
+  .cta .btn{padding:15px 24px}
+  .terminal-section{margin:28px auto 45px;padding:0 18px}
+  .terminal-body{font-size:12px;min-height:145px}
+  .terminal-head p{font-size:12px}
+  .footer-inner{padding:25px 0 36px;gap:11px}
+  .footer-inner p{font-size:11px;line-height:1.5}
+  .modal{padding:37px 23px}
+  .modal h2{font-size:32px}
+  .carlao-entry{padding:20px max(18px,env(safe-area-inset-right)) 20px max(18px,env(safe-area-inset-left))}
+}
+@media(max-width:380px){
+  .note{font-size:8px;letter-spacing:.8px;padding:8px}
+  .wrap{width:calc(100% - 30px)}
+  .hero-visual{height:clamp(275px,83vw,320px)}
+  .hero-side{left:13px;right:13px;bottom:15px}
+  .hero-side b{font-size:14px}
+  .hero-side span{font-size:8px;letter-spacing:.7px}
+  .hero h1{font-size:52px;letter-spacing:-2px}
+  .hero h2{font-size:26px}
+  .hero-tags span{font-size:9px}
+  .actions .btn{width:100%}
+  .terminal-form button{padding:9px}
+}
 </style>
 </head>
 <body>
@@ -85,7 +162,7 @@ footer{border-top:1px solid var(--line);background:#100c0b}.footer-inner{display
 <noscript><style>#carlao-entrada{display:none!important}</style></noscript>
 
 <div class="shell" id="inicio">
-<div class="note">Experiência fictícia • criada só pela resenha 😄</div>
+<div class="note">Experiência fictícia · só pela resenha 😄</div>
 <header><nav class="nav wrap" aria-label="Navegação principal">
 <a class="logo" href="#inicio" aria-label="Carlão, ir ao início"><svg class="lotus" viewBox="0 0 64 55" fill="none" aria-hidden="true"><path d="M32 41C23 32 23 19 32 7c9 12 9 25 0 34Zm0 1C17 42 9 33 7 17c14 1 24 10 25 25Zm0 0c15 0 23-9 25-25-14 1-24 10-25 25ZM11 34c7 12 16 15 21 14m21-14c-7 12-16 15-21 14" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round"/></svg><span class="logo-text"><strong>Carlão</strong><small>Tantra &amp; Spa</small></span></a>
 <div class="navlinks" id="navlinks"><a href="#inicio">Início</a><a href="#massagens">Massagens</a><a href="#sobre">Sobre o Carlão</a><a href="#contato">Contato</a></div>
