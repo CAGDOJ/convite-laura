@@ -105,7 +105,6 @@ function updateMusicButton(){
   musicToggle.setAttribute('aria-pressed',String(musicPlaying));
 }
 function requestMusic(showPanel=false){
-  if(musicPausedByUser&&!showPanel)return;
   musicPausedByUser=false;musicRequested=true;
   if(showPanel)musicPanel.hidden=false;
   if(musicReady&&musicPlayer){
