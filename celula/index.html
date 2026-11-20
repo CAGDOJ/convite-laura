@@ -36,16 +36,17 @@ footer{padding:36px 24px 45px;border-top:1px solid var(--line);background:#08141
 .music-widget{position:fixed;right:max(14px,env(safe-area-inset-right));bottom:max(14px,env(safe-area-inset-bottom));z-index:45;display:flex;align-items:flex-end;flex-direction:column;gap:10px}
 .music-toggle{color:#121e22;background:var(--gold-light);border:1px solid #fff8;border-radius:999px;box-shadow:0 8px 28px #0007;cursor:pointer;font:700 12px 'DM Sans',sans-serif;letter-spacing:.04em;min-height:48px;padding:0 19px}
 .music-toggle:hover{background:white}
-.music-panel{background:#0d1b22f7;backdrop-filter:blur(18px);border:1px solid #f3dba261;border-radius:18px;box-shadow:0 18px 55px #0009;padding:14px;width:min(400px,calc(100vw - 28px));color:white}
+.music-panel{background:#0d1b22f7;backdrop-filter:blur(18px);border:1px solid #f3dba261;border-radius:15px;box-shadow:0 18px 55px #0009;padding:10px;width:min(235px,calc(100vw - 28px));color:white}
 .music-panel[hidden]{display:none}
 .music-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:2px 0 12px}
 .music-head strong{font-size:13px;font-weight:700}.music-head small{display:block;color:#c1b69c;margin-top:5px;font-size:11px}
 .music-close{display:grid;place-items:center;color:white;background:#ffffff19;border:1px solid #ffffff33;border-radius:50%;width:34px;height:34px;flex:none;cursor:pointer;font-size:22px}
-.music-frame{width:100%;height:210px;display:block;border:0;border-radius:10px;background:#000}
-.music-foot{font-size:11px;line-height:1.5;color:#c2cac8;margin:10px 0 0}
+.music-frame{width:100%;height:132px;display:block;border:0;border-radius:10px;background:#000}
+.music-foot{font-size:10px;line-height:1.4;color:#c2cac8;margin:8px 0 0}
 .music-foot a{color:var(--gold-light);text-underline-offset:3px}
-@media(max-width:720px){.brand-logo{width:68px;height:39px}.brand{gap:7px}.hero-network-logo{max-height:112px}.hero h1{font-size:clamp(62px,16vw,108px)}.music-toggle{min-height:44px}.music-panel{padding:12px}.music-frame{height:205px}}
+@media(max-width:720px){.brand-logo{width:68px;height:39px}.brand{gap:7px}.hero-network-logo{max-height:112px}.hero h1{font-size:clamp(62px,16vw,108px)}.music-toggle{min-height:44px}.music-panel{padding:9px}.music-frame{height:130px}}
 .confirmation-actions{display:flex;flex-direction:column;align-items:center;gap:15px}.whatsapp-confirm{display:inline-flex;justify-content:center;align-items:center;gap:5px;min-height:55px;max-width:calc(100vw - 32px);padding:12px 25px;color:#14251e;text-decoration:none;text-align:center;border:1px solid var(--gold-light);border-radius:100px;background:var(--gold-light);font:700 12px 'DM Sans',sans-serif;letter-spacing:.035em;transition:transform .25s,background .25s;box-shadow:0 10px 30px #0004}.whatsapp-confirm:hover{transform:translateY(-3px);background:white}.confirmation-hint{font-size:12px;line-height:1.65;color:var(--sub);max-width:330px}.confirmation-actions .share-btn{margin-top:12px}@media(max-width:720px){.whatsapp-confirm{font-size:11px;min-height:54px;padding:11px 16px}}
+.music-compact-note{font-size:10px;color:var(--gold-light);background:#0d1b22ee;border-radius:9px;padding:6px 9px;max-width:190px;text-align:center}.music-compact-note[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -74,19 +75,19 @@ footer{padding:36px 24px 45px;border-top:1px solid var(--line);background:#08141
 <section class="invite" id="convite"><div class="container reveal"><span class="eyebrow">Você também faz parte dessa história</span><h2>Talvez o próximo capítulo<br>comece com <em style="color:var(--gold);font-weight:400">você.</em></h2><p>Se esta mensagem chegou até você, receba nosso carinho. A nossa caminhada é feita de portas abertas, fé e pessoas de verdade.</p><div class="confirmation-actions"><a class="whatsapp-confirm" href="https://wa.me/5591984999491?text=Ol%C3%A1!%20Gostei%20muito%20do%20convite%20da%20C%C3%A9lula%20Esquenta!%20%E2%9D%A4%EF%B8%8F%20Confirmo%20minha%20presen%C3%A7a%20e%20vou%20estar%20l%C3%A1.%20Deus%20aben%C3%A7oe!%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" aria-label="Confirmar presença no WhatsApp com mensagem pronta">💬 &nbsp; Confirmar presença pelo WhatsApp ↗</a><span class="confirmation-hint">Uma mensagem pronta será aberta. É só tocar em enviar para confirmar.</span><button type="button" class="share-btn" id="compartilhar">Compartilhar esta história ↗</button></div><p id="status" class="copy-status" role="status" aria-live="polite"></p></div></section>
 </main>
 <div class="music-widget" aria-label="Música do convite">
-  <section id="musicPanel" class="music-panel" hidden aria-label="Reprodutor Primavera de IIR Music">
+  <section id="musicPanel" class="music-panel" hidden aria-label="Reprodutor oficial da música Primavera">
     <div class="music-head"><div><strong>♪ Primavera (Ao Vivo)</strong><small>IIR Music • Trilha da nossa história</small></div><button type="button" class="music-close" id="musicClose" aria-label="Parar a música e fechar">×</button></div>
     <div id="musicMount"></div>
-    <p class="music-foot">A música tenta iniciar ao abrir o convite. Caso o celular bloqueie o áudio automático, toque em “Ouvir Primavera” ou no vídeo. <a href="https://www.youtube.com/watch?v=cwDzMKP26W4" target="_blank" rel="noopener noreferrer">Abrir no YouTube</a>.</p>
+    <p class="music-foot">A música tenta tocar ao abrir. Se o navegador bloquear, toque no vídeo para liberar o áudio. <a href="https://www.youtube.com/watch?v=cwDzMKP26W4" target="_blank" rel="noopener noreferrer">Abrir no YouTube</a>.</p>
   </section>
-  <button id="musicToggle" class="music-toggle" type="button" aria-controls="musicPanel" aria-expanded="false" aria-pressed="false">♫ Ouvir Primavera</button>
+  <span id="musicCompactNote" class="music-compact-note" hidden>Se o navegador bloquear, toque no player oficial.</span><button id="musicToggle" class="music-toggle" type="button" aria-controls="musicPanel" aria-expanded="false" aria-pressed="false">♫ Ouvir Primavera</button>
 </div>
 <footer><div class="footer-cross" aria-hidden="true">✝</div><p>“Acima de tudo, porém, revistam-se do amor.”<br>Colossenses 3:14</p><p class="credit">Experiência digital por <a href="https://instagram.com/techcaju" target="_blank" rel="noopener noreferrer">TechCaju • Carlos Júnior</a></p></footer>
 <script>
 (()=>{'use strict';
 const byId=id=>document.getElementById(id);
 const musicPanel=byId('musicPanel'),musicMount=byId('musicMount'),musicToggle=byId('musicToggle');
-let musicPlayer=null,musicReady=false,musicPlaying=false,musicRequested=true,musicPausedByUser=false;
+let musicPlayer=null,musicReady=false,musicPlaying=false,musicRequested=true,musicPausedByUser=false,musicManualAttempts=0;
 const trackId='cwDzMKP26W4';
 const playerFrame=document.createElement('iframe');
 playerFrame.id='celula-youtube-player';
@@ -112,7 +113,9 @@ function requestMusic(showPanel=false){
       musicPlayer.unMute();
       musicPlayer.setVolume(85);
       musicPlayer.playVideo();
-    }catch(_){musicToggle.textContent='♫ Toque para ouvir';}
+    }catch(_){
+      musicToggle.textContent='♫ Toque para ouvir';
+    }
   }
   updateMusicButton();
 }
@@ -122,7 +125,13 @@ function pauseMusic(hidePanel=false){
   if(hidePanel)musicPanel.hidden=true;
   updateMusicButton();
 }
-musicToggle.addEventListener('click',()=>musicPlaying?pauseMusic():requestMusic(true));
+musicToggle.addEventListener('click',()=>{
+  if(musicPlaying){pauseMusic();return;}
+  // Começa diretamente, sem abrir o vídeo sobre o convite.
+  // Se o navegador impedir o som, o reprodutor oficial permanece acessível.
+  musicManualAttempts++;
+  requestMusic(musicManualAttempts>=2 && !musicPlaying);
+});
 byId('musicClose').addEventListener('click',()=>pauseMusic(true));
 function createMusicPlayer(){
   if(musicPlayer||!window.YT||!YT.Player)return;
@@ -131,7 +140,7 @@ function createMusicPlayer(){
       onReady(e){musicPlayer=e.target;musicReady=true;requestMusic();},
       onStateChange(e){
         if(e.data===YT.PlayerState.PLAYING){
-          musicPlaying=true;musicPausedByUser=false;updateMusicButton();
+          musicPlaying=true;musicPausedByUser=false;musicManualAttempts=0;musicPanel.hidden=true;updateMusicButton();
         }else if(e.data===YT.PlayerState.PAUSED){
           musicPlaying=false;updateMusicButton();
         }else if(e.data===YT.PlayerState.ENDED&&musicRequested){
@@ -139,7 +148,7 @@ function createMusicPlayer(){
           try{musicPlayer.seekTo(0,true);musicPlayer.playVideo();}catch(_){}
         }
       },
-      onAutoplayBlocked(){musicPlaying=false;musicToggle.textContent='♫ Toque para ouvir';},
+      onAutoplayBlocked(){musicPlaying=false;musicToggle.textContent='♫ Toque para ouvir';musicToggle.title='Se a música não iniciar, toque aqui e depois no vídeo oficial';},
       onError(){musicPlaying=false;musicToggle.textContent='♫ Abrir música';}
     }
   });
@@ -157,12 +166,12 @@ else{
 function firstInteraction(event){
   if(musicPlaying||musicPausedByUser)return;
   if(event.target instanceof Element&&event.target.closest('#musicToggle,#musicClose,#musicPanel'))return;
-  requestMusic(true);
+  requestMusic(false);
 }
 document.addEventListener('pointerdown',firstInteraction,{capture:true,passive:true});
-document.addEventListener('keydown',event=>{if((event.key==='Enter'||event.key===' ')&&!musicPlaying&&!musicPausedByUser)requestMusic(true);},{capture:true});
+document.addEventListener('keydown',event=>{if((event.key==='Enter'||event.key===' ')&&!musicPlaying&&!musicPausedByUser)requestMusic(false);},{capture:true});
 byId('abrir').addEventListener('click',()=>{
-  if(!musicPlaying&&!musicPausedByUser)requestMusic(true);
+  if(!musicPlaying&&!musicPausedByUser)requestMusic(false);
   byId('historia').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
 });
 const film=byId('film'),slides=Array.from(film.querySelectorAll('.slide')),counter=byId('counter');
